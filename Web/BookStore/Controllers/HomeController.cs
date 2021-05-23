@@ -15,5 +15,11 @@ namespace BookStore.Controllers
             return View(db.GetHomePage());
         }
 
+        public ActionResult Detail(int id)
+        {
+            ViewBag.RecommendBook = db.GetBookRecommned();
+
+            return View(db.GetDetailBook(id));
+        }
     }
 }   

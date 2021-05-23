@@ -40,5 +40,23 @@ namespace BookStore.Models.DBInteractive
             }
             return list;
         }
+
+        public List<Book> GetBookRecommned()
+        {
+            int pageSize = 5;
+            List<Book> list = StoreDB.Books.Where(x => x.isHidden != 1).OrderBy(x => x.ID).Take(pageSize).ToList();
+            for(int i = 0; i<pageSize; i++)
+            {
+                list[i].Page = list[i].Images.First().Url;
+            }
+            return list; 
+        }
+
+        public Book GetDetailBook(int id)
+        {
+            var book = StoreDB.Books.Where(x => x.ID == id).First();
+            return book;
+        }
+
     }
 }
