@@ -781,7 +781,7 @@
                                     <li class="page-item "><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage-1)" title="«">«</a></li>
                                 }
 
-                                @if (ViewBag.PresentPage > 3 && ViewBag.MaxPage > 5)
+                                @if (ViewBag.PresentPage > 4 && ViewBag.MaxPage > 5)
                                 {
                                     <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=1" title="1">1</a></li>
                                     <li class="page-item"><a class="page-link" href="javascript:;" title="...">...</a></li>
@@ -800,7 +800,7 @@
 
                                 }
 
-                                @if (@ViewBag.PresentPage <= (@ViewBag.MaxPage - 5) && ViewBag.MaxPage > 5)
+                                @if (@ViewBag.PresentPage <= (@ViewBag.MaxPage - 3) && ViewBag.MaxPage > 5)
                                 {
                                     <li class="page-item"><a class="page-link" href="" title="...">...</a></li>
                                     <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@ViewBag.MaxPage" title="@ViewBag.MaxPage">@ViewBag.MaxPage</a></li>
