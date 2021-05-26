@@ -1,4 +1,5 @@
 ﻿using BookStore.Models.Entities;
+using BookStore.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +9,18 @@ namespace BookStore.Models.DBInteractive
 {
     public class ListBook
     {
-        public int pages { get; set; }
+        public int page { get; set; }
         public Category cate { get; set; }
         public List<Book> books { get; set; }
-        public ListBook(int pages, List<Book> books)
+        public ListBook(int page, List<Book> books)
         {
-            this.pages = pages;
+            this.page = page;
             this.books = books;
         }
-            
+
     }
+
+
     public class BookStoreDB
     {
         BookStoreDBContext StoreDB;
@@ -27,12 +30,14 @@ namespace BookStore.Models.DBInteractive
             StoreDB = new BookStoreDBContext();
         }
 
+
+        //Lấy 8 quyển sách theo thể loại để hiển thị lên menu
         public List<ListBook> GetHomePage()
         {
             int pageSize = 8;
             var listItem = StoreDB.Books.Where(x => x.isHidden != 1);
             List<ListBook> list = new List<ListBook>();
-            foreach(var cate in StoreDB.Categories.ToList())
+            foreach (var cate in StoreDB.Categories.ToList())
             {
                 ListBook listBook = new ListBook(0, listItem.Where(x => x.idCategory == cate.ID).OrderBy(x => x.ID).Take(pageSize).ToList());
                 listBook.cate = cate;
@@ -41,17 +46,45 @@ namespace BookStore.Models.DBInteractive
             return list;
         }
 
+        public ListBook GetListBook(string text = "", int page = 1)
+        {
+            int pageSize = 12;
+            var removeUnicode = SupportFuntions.RemoveUnicode(text);
+            var listBook = StoreDB.Books.Where(x => x.isHidden != 1);
+            listBook = listBook.Where(m => m.KeySearch.Contains(removeUnicode));
+
+            int maxPage;
+            int countItem = listBook.Count();
+
+            if (countItem / 12 == 0 && countItem == 0)
+                maxPage = 0;
+            else if (countItem / 12 == 0 && countItem != 0)
+                maxPage = 1;
+            else if (countItem % 12 == 0)
+                maxPage = countItem / 12;
+            else
+                maxPage = (countItem / 12) + 1;
+
+            listBook = listBook.OrderBy(x => x.ID).Skip((page - 1) * pageSize).Take(pageSize);
+
+            ListBook list = new ListBook(maxPage, listBook.ToList());
+
+            return list;
+        }
+
+        //Lấy 5 quyển sách để hiển thị sách đề xuất ở trang xem sách chi tiết của khách hàng (Detail)
         public List<Book> GetBookRecommned()
         {
             int pageSize = 5;
             List<Book> list = StoreDB.Books.Where(x => x.isHidden != 1).OrderBy(x => x.ID).Take(pageSize).ToList();
-            for(int i = 0; i<pageSize; i++)
+            for (int i = 0; i < pageSize; i++)
             {
                 list[i].Page = list[i].Images.First().Url;
             }
-            return list; 
+            return list;
         }
 
+        //Lấy 1 quyển sách, để hiển thị Detail quyển sách đó
         public Book GetDetailBook(int id)
         {
             var book = StoreDB.Books.Where(x => x.ID == id).First();

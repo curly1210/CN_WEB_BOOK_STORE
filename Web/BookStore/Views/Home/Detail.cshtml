@@ -17,7 +17,7 @@
 
                                 <div aria-live="polite" class="slick-list draggable">
                                     <div class="slick-track" role="listbox" style="opacity: 1; width: 360px;">
-                                        <img src="@Model.Images.First().Url" alt="@Model.Title" data-image="https://bizweb.dktcdn.net/100/386/441/products/image-229714.jpg?v=1619166377290" class="img-responsive mx-auto d-block" style="opacity: 1;">
+                                        <img src="@Model.Images.First().Url" alt="@Model.Title" class="img-responsive mx-auto d-block" style="opacity: 1;">
                                     </div>
                                 </div>
 
@@ -29,7 +29,7 @@
                                 <div aria-live="polite" class="slick-list draggable">
                                     <div class="slick-track" role="listbox" style="opacity: 1; width: 83px; transform: translate3d(0px, 0px, 0px);">
                                         <div class="fixs slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide20" style="width: 73px;">
-                                            <img class="lazy loaded" src="https://bizweb.dktcdn.net/100/386/441/products/image-229714.jpg?v=1619166377290" data-src="https://bizweb.dktcdn.net/100/386/441/products/image-229714.jpg?v=1619166377290" alt="Nhật Ký Trưởng Thành Của Đứa Trẻ Ngoan - Làm Một Người Biết Ơn" data-image="https://bizweb.dktcdn.net/100/386/441/products/image-229714.jpg?v=1619166377290" data-was-processed="true">
+                                            <img class="lazy loaded" src="@Model.Images.First().Url"  alt="@Model.Title" data-was-processed="true">
                                         </div>
                                     </div>
                                 </div>
@@ -77,18 +77,18 @@
 
                         <div class="price-box clearfix margin-bottom-10">
                             <span class="special-price">
-                                <span class="price product-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price * 0.9)đ</span>
+                                <span class="price product-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price)đ</span>
                             </span> <!-- Giá Khuyến mại -->
                             <span class="old-price" ">
                                 Giá thị trường:
                                 <del class="price product-price-old">
-                                    @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price)đ
+                                    @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price * 1.1)đ
                                 </del>
 
                             </span> <!-- Giás gốc -->
                             <span class="save-price">
                                 Tiết kiệm:
-                                <span class="price product-price-save"> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price - (double)Model.Price * 0.9)đ</span>
+                                <span class="price product-price-save"> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price * 1.1 - (double)Model.Price )đ</span>
                             </span> <!-- Tiết kiệm -->
 
                         </div>
@@ -112,7 +112,6 @@
                         </form>
                     </div>
                 </div>
-                @*@RenderPage("~/Views/Shared/User/recommend.cshtml")*@
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 d-none d-lg-block">
                     <div class="evo-may-be-like">
                         <h3><a href="san-pham-noi-bat" title="Có thể bạn quan tâm">Có thể bạn quan tâm</a></h3>
@@ -133,9 +132,9 @@
                                         <div class="product-price-and-shipping">
 
 
-                                            <span class="price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)book.Price * 0.9)đ</span>
+                                            <span class="price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)book.Price)đ</span>
 
-                                            <span class="regular-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)book.Price)đ</span>
+                                            <span class="regular-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)book.Price * 1.1)đ</span>
 
 
 

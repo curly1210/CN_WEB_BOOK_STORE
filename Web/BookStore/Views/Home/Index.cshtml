@@ -22,7 +22,7 @@
         right: -15px;
 </style>
 
-<div class="container pt-2" style="background-color:white">
+<div class="container pt-2" style="background-color:white;">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner ">
             <div class="carousel-item active">
@@ -122,10 +122,10 @@
                                                 <span class="product-price-wrapper">
 
 
-                                                    <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)item.Price * 0.9)đ</span>
+                                                    <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)item.Price)đ</span>
 
                                                     <span class="product-price-old">
-                                                        <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)item.Price)đ</span>
+                                                        <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)item.Price * 1.1)đ</span>
                                                     </span>
 
                                                 </span>

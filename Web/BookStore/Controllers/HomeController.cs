@@ -1,4 +1,5 @@
 ﻿using BookStore.Models.DBInteractive;
+using BookStore.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,16 @@ namespace BookStore.Controllers
             return View(db.GetHomePage());
         }
 
+        public ActionResult List(string text = "", int page = 1)
+        {
+            ViewBag.TextSearch = text;
+            ViewBag.PresentPage = page;
+            ListBook list = db.GetListBook(text, page);
+            ViewBag.Count = list.books.Count();
+            ViewBag.ListPage = SupportFuntions.getNumberPage(page, list.page);
+            ViewBag.MaxPage = list.page;
+            return View(list.books);
+        }
         public ActionResult Detail(int id)
         {
             ViewBag.RecommendBook = db.GetBookRecommned();
@@ -22,4 +33,4 @@ namespace BookStore.Controllers
             return View(db.GetDetailBook(id));
         }
     }
-}   
+}
