@@ -7,6 +7,7 @@
 }
 
 
+
 <link href="//bizweb.dktcdn.net/100/386/441/themes/764408/assets/evo-collections.scss.css?1621496047879" rel="stylesheet" type="text/css">
 
 <div class="container" style="background-color:white">
@@ -59,648 +60,181 @@
                         <div class="clearfix"></div>
 
 
-                        @*<aside class="aside-item filter-vendor">
-                                <div class="aside-title">Thương hiệu</div>
-                                <div class="aside-content filter-group">
-                                    <div class="field-search input-group">
-                                        <input type="text" placeholder="Tìm Thương hiệu" class="form-control filter-vendor-list" onkeyup="filterItemInList(jQuery('.filter-vendor-list'))">
-                                        <button class="btn btn-default">
-                                            <svg viewBox="0 0 451 451" style="width:20px;">
-                                                <g fill="#000">
-                                                    <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
+
+                        <aside class="aside-item filter-type">
+                            <div class="aside-title">Thể loại</div>
+                            <div class="aside-content filter-group">
+                                <div class="field-search input-group">
+                                    <input type="text" placeholder="Tìm Loại" class="form-control filter-type-list">
+                                    <button class="btn btn-default">
+                                        <svg viewBox="0 0 451 451" style="width:20px;">
+                                            <g fill="#000">
+                                                <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
                                                  s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
                                                  C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
                                                  s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <ul class="filter-vendor">
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="báo sinh viên việt nam - hoa học trò" for="filter-bao-sinh-vien-viet-nam-hoa-hoc-tro" class="bao-sinh-vien-viet-nam-hoa-hoc-tro">
-                                                <input type="checkbox" id="filter-bao-sinh-vien-viet-nam-hoa-hoc-tro" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="Báo Sinh Viên Việt Nam - Hoa Học Trò" value="(&quot;Báo Sinh Viên Việt Nam - Hoa Học Trò&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                Báo Sinh Viên Việt Nam - Hoa Học Trò
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb bách khoa hà nội" for="filter-nxb-bach-khoa-ha-noi" class="nxb-bach-khoa-ha-noi">
-                                                <input type="checkbox" id="filter-nxb-bach-khoa-ha-noi" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Bách Khoa Hà Nội" value="(&quot;NXB Bách Khoa Hà Nội&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Bách Khoa Hà Nội
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb chính trị quốc gia sự thật" for="filter-nxb-chinh-tri-quoc-gia-su-that" class="nxb-chinh-tri-quoc-gia-su-that">
-                                                <input type="checkbox" id="filter-nxb-chinh-tri-quoc-gia-su-that" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Chính Trị Quốc Gia Sự Thật" value="(&quot;NXB Chính Trị Quốc Gia Sự Thật&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Chính Trị Quốc Gia Sự Thật
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb công thương" for="filter-nxb-cong-thuong" class="nxb-cong-thuong">
-                                                <input type="checkbox" id="filter-nxb-cong-thuong" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Công Thương" value="(&quot;NXB Công Thương&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Công Thương
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb đà nẵng" for="filter-nxb-da-nang" class="nxb-da-nang">
-                                                <input type="checkbox" id="filter-nxb-da-nang" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Đà Nẵng" value="(&quot;NXB Đà Nẵng&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Đà Nẵng
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb đại học kinh tế quốc dân" for="filter-nxb-dai-hoc-kinh-te-quoc-dan" class="nxb-dai-hoc-kinh-te-quoc-dan">
-                                                <input type="checkbox" id="filter-nxb-dai-hoc-kinh-te-quoc-dan" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Đại Học Kinh Tế Quốc Dân" value="(&quot;NXB Đại Học Kinh Tế Quốc Dân&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Đại Học Kinh Tế Quốc Dân
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb đại học quốc gia hà nội" for="filter-nxb-dai-hoc-quoc-gia-ha-noi" class="nxb-dai-hoc-quoc-gia-ha-noi">
-                                                <input type="checkbox" id="filter-nxb-dai-hoc-quoc-gia-ha-noi" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Đại Học Quốc Gia Hà Nội" value="(&quot;NXB Đại Học Quốc Gia Hà Nội&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Đại Học Quốc Gia Hà Nội
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb đại học sư phạm" for="filter-nxb-dai-hoc-su-pham" class="nxb-dai-hoc-su-pham">
-                                                <input type="checkbox" id="filter-nxb-dai-hoc-su-pham" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Đại Học Sư Phạm" value="(&quot;NXB Đại Học Sư Phạm&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Đại Học Sư Phạm
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb dân trí" for="filter-nxb-dan-tri" class="nxb-dan-tri">
-                                                <input type="checkbox" id="filter-nxb-dan-tri" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Dân Trí" value="(&quot;NXB Dân Trí&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Dân Trí
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb đồng nai" for="filter-nxb-dong-nai" class="nxb-dong-nai">
-                                                <input type="checkbox" id="filter-nxb-dong-nai" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Đồng Nai" value="(&quot;NXB Đồng Nai&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Đồng Nai
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb hà nội" for="filter-nxb-ha-noi" class="nxb-ha-noi">
-                                                <input type="checkbox" id="filter-nxb-ha-noi" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Hà Nội" value="(&quot;NXB Hà Nội&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Hà Nội
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb hội nhà văn" for="filter-nxb-hoi-nha-van" class="nxb-hoi-nha-van">
-                                                <input type="checkbox" id="filter-nxb-hoi-nha-van" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Hội nhà văn" value="(&quot;NXB Hội nhà văn&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Hội nhà văn
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb hồng đức" for="filter-nxb-hong-duc" class="nxb-hong-duc">
-                                                <input type="checkbox" id="filter-nxb-hong-duc" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Hồng Đức" value="(&quot;NXB Hồng Đức&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Hồng Đức
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb kim đồng" for="filter-nxb-kim-dong" class="nxb-kim-dong">
-                                                <input type="checkbox" id="filter-nxb-kim-dong" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Kim Đồng" value="(&quot;NXB Kim Đồng&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Kim Đồng
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb kinh tế tphcm" for="filter-nxb-kinh-te-tphcm" class="nxb-kinh-te-tphcm">
-                                                <input type="checkbox" id="filter-nxb-kinh-te-tphcm" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Kinh tế TPHCM" value="(&quot;NXB Kinh tế TPHCM&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Kinh tế TPHCM
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb lao động" for="filter-nxb-lao-dong" class="nxb-lao-dong">
-                                                <input type="checkbox" id="filter-nxb-lao-dong" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Lao Động" value="(&quot;NXB Lao Động&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Lao Động
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb lao động - xã hội" for="filter-nxb-lao-dong-xa-hoi" class="nxb-lao-dong-xa-hoi">
-                                                <input type="checkbox" id="filter-nxb-lao-dong-xa-hoi" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Lao Động - Xã Hội" value="(&quot;NXB Lao Động - Xã Hội&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Lao Động - Xã Hội
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb phụ nữ" for="filter-nxb-phu-nu" class="nxb-phu-nu">
-                                                <input type="checkbox" id="filter-nxb-phu-nu" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Phụ Nữ" value="(&quot;NXB Phụ Nữ&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Phụ Nữ
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb phụ nữ việt nam" for="filter-nxb-phu-nu-viet-nam" class="nxb-phu-nu-viet-nam">
-                                                <input type="checkbox" id="filter-nxb-phu-nu-viet-nam" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Phụ Nữ Việt nam" value="(&quot;NXB Phụ Nữ Việt nam&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Phụ Nữ Việt nam
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb tài chính" for="filter-nxb-tai-chinh" class="nxb-tai-chinh">
-                                                <input type="checkbox" id="filter-nxb-tai-chinh" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Tài Chính" value="(&quot;NXB Tài Chính&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Tài Chính
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb thanh hóa" for="filter-nxb-thanh-hoa" class="nxb-thanh-hoa">
-                                                <input type="checkbox" id="filter-nxb-thanh-hoa" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Thanh Hóa" value="(&quot;NXB Thanh Hóa&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Thanh Hóa
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb thanh niên" for="filter-nxb-thanh-nien" class="nxb-thanh-nien">
-                                                <input type="checkbox" id="filter-nxb-thanh-nien" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Thanh Niên" value="(&quot;NXB Thanh Niên&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Thanh Niên
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb thế giới" for="filter-nxb-the-gioi" class="nxb-the-gioi">
-                                                <input type="checkbox" id="filter-nxb-the-gioi" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Thế Giới" value="(&quot;NXB Thế Giới&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Thế Giới
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb thời đại" for="filter-nxb-thoi-dai" class="nxb-thoi-dai">
-                                                <input type="checkbox" id="filter-nxb-thoi-dai" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Thời Đại" value="(&quot;NXB Thời Đại&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Thời Đại
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb thuận hòa" for="filter-nxb-thuan-hoa" class="nxb-thuan-hoa">
-                                                <input type="checkbox" id="filter-nxb-thuan-hoa" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Thuận Hòa" value="(&quot;NXB Thuận Hòa&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Thuận Hòa
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb tổng hợp" for="filter-nxb-tong-hop" class="nxb-tong-hop">
-                                                <input type="checkbox" id="filter-nxb-tong-hop" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Tổng Hợp" value="(&quot;NXB Tổng Hợp&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Tổng Hợp
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb tổng hợp tp.hcm" for="filter-nxb-tong-hop-tp-hcm" class="nxb-tong-hop-tp-hcm">
-                                                <input type="checkbox" id="filter-nxb-tong-hop-tp-hcm" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Tổng hợp TP.HCM" value="(&quot;NXB Tổng hợp TP.HCM&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Tổng hợp TP.HCM
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb tổng hợp tphcm" for="filter-nxb-tong-hop-tphcm" class="nxb-tong-hop-tphcm">
-                                                <input type="checkbox" id="filter-nxb-tong-hop-tphcm" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Tổng Hợp TPHCM" value="(&quot;NXB Tổng Hợp TPHCM&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Tổng Hợp TPHCM
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb trẻ" for="filter-nxb-tre" class="nxb-tre">
-                                                <input type="checkbox" id="filter-nxb-tre" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Trẻ" value="(&quot;NXB Trẻ&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Trẻ
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb văn hóa - văn nghệ tp.hcm" for="filter-nxb-van-hoa-van-nghe-tp-hcm" class="nxb-van-hoa-van-nghe-tp-hcm">
-                                                <input type="checkbox" id="filter-nxb-van-hoa-van-nghe-tp-hcm" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Văn Hóa - Văn Nghệ TP.HCM" value="(&quot;NXB Văn Hóa - Văn Nghệ TP.HCM&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Văn Hóa - Văn Nghệ TP.HCM
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb văn hóa dân tộc" for="filter-nxb-van-hoa-dan-toc" class="nxb-van-hoa-dan-toc">
-                                                <input type="checkbox" id="filter-nxb-van-hoa-dan-toc" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Văn Hóa Dân Tộc" value="(&quot;NXB Văn Hóa Dân Tộc&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Văn Hóa Dân Tộc
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb văn hóa nghệ thuật" for="filter-nxb-van-hoa-nghe-thuat" class="nxb-van-hoa-nghe-thuat">
-                                                <input type="checkbox" id="filter-nxb-van-hoa-nghe-thuat" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Văn Hóa Nghệ Thuật" value="(&quot;NXB Văn Hóa Nghệ Thuật&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Văn Hóa Nghệ Thuật
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb văn hóa thông tin" for="filter-nxb-van-hoa-thong-tin" class="nxb-van-hoa-thong-tin">
-                                                <input type="checkbox" id="filter-nxb-van-hoa-thong-tin" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Văn Hóa Thông Tin" value="(&quot;NXB Văn Hóa Thông Tin&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Văn Hóa Thông Tin
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb văn hóa văn nghệ" for="filter-nxb-van-hoa-van-nghe" class="nxb-van-hoa-van-nghe">
-                                                <input type="checkbox" id="filter-nxb-van-hoa-van-nghe" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Văn Hóa Văn nghệ" value="(&quot;NXB Văn Hóa Văn nghệ&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Văn Hóa Văn nghệ
-
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green ">
-                                            <label data-filter="nxb văn học" for="filter-nxb-van-hoc" class="nxb-van-hoc">
-                                                <input type="checkbox" id="filter-nxb-van-hoc" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor.filter_key" data-text="NXB Văn Học" value="(&quot;NXB Văn Học&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-
-                                                NXB Văn Học
-
-                                            </label>
-                                        </li>
-
-
-                                    </ul>
+                                            </g>
+                                        </svg>
+                                    </button>
                                 </div>
-                            </aside>
+                                <ul class="filter-type">
 
-
-
-                            <aside class="aside-item filter-price">
-                                <div class="aside-title">Giá sản phẩm</div>
-                                <div class="aside-content filter-group">
-                                    <ul>
-
-
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green">
-                                            <span>
-                                                <label for="filter-duoi-100-000d">
-                                                    <input type="checkbox" id="filter-duoi-100-000d" onchange="toggleFilter(this);" data-group="Khoảng giá" data-field="price_min" data-text="Dưới 100.000đ" value="(<100000)" data-operator="OR">
+                                    @foreach (var cate in ViewBag.ListCate)
+                                    {
+                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
+                                            <label>
+                                                @if (cate.ID == ViewBag.Cate)
+                                                {
+                                                    <input type="checkbox" id="@cate.Name" name="the-loai" onclick="getFilter(0)" checked />
                                                     <i class="fa"></i>
-                                                    Giá dưới 100.000đ
-                                                </label>
-                                            </span>
-                                        </li>
-
-
-
-
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green">
-                                            <span>
-                                                <label for="filter-100-000d-200-000d">
-                                                    <input type="checkbox" id="filter-100-000d-200-000d" onchange="toggleFilter(this)" data-group="Khoảng giá" data-field="price_min" data-text="100.000đ - 200.000đ" value="(>=100000 AND <=200000)" data-operator="OR">
+                                                    @cate.Name
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" id="@cate.Name" name="the-loai" onclick="getFilter(@cate.ID)" />
                                                     <i class="fa"></i>
-                                                    100.000đ - 200.000đ
-                                                </label>
-                                            </span>
+                                                    @cate.Name
+                                                }
+
+                                            </label>
                                         </li>
+                                    }
 
+                                </ul>
+                            </div>
 
+                            <hr style="margin-bottom:6px;margin-top:6px" />
 
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green">
-                                            <span>
-                                                <label for="filter-200-000d-300-000d">
-                                                    <input type="checkbox" id="filter-200-000d-300-000d" onchange="toggleFilter(this)" data-group="Khoảng giá" data-field="price_min" data-text="200.000đ - 300.000đ" value="(>=200000 AND <=300000)" data-operator="OR">
-                                                    <i class="fa"></i>
-                                                    200.000đ - 300.000đ
-                                                </label>
-                                            </span>
-                                        </li>
-
-
-
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green">
-                                            <span>
-                                                <label for="filter-300-000d-500-000d">
-                                                    <input type="checkbox" id="filter-300-000d-500-000d" onchange="toggleFilter(this)" data-group="Khoảng giá" data-field="price_min" data-text="300.000đ - 500.000đ" value="(>=300000 AND <=500000)" data-operator="OR">
-                                                    <i class="fa"></i>
-                                                    300.000đ - 500.000đ
-                                                </label>
-                                            </span>
-                                        </li>
-
-
-
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green">
-                                            <span>
-                                                <label for="filter-500-000d-1-000-000d">
-                                                    <input type="checkbox" id="filter-500-000d-1-000-000d" onchange="toggleFilter(this)" data-group="Khoảng giá" data-field="price_min" data-text="500.000đ - 1.000.000đ" value="(>=500000 AND <=1000000)" data-operator="OR">
-                                                    <i class="fa"></i>
-                                                    500.000đ - 1.000.000đ
-                                                </label>
-                                            </span>
-                                        </li>
-                                        <li class="filter-item filter-item--check-box filter-item--green">
-                                            <span>
-                                                <label for="filter-tren1-000-000d">
-                                                    <input type="checkbox" id="filter-tren1-000-000d" onchange="toggleFilter(this)" data-group="Khoảng giá" data-field="price_min" data-text="Trên 1.000.000đ" value="(>1000000)" data-operator="OR">
-                                                    <i class="fa"></i>
-                                                    Giá trên 1.000.000đ
-                                                </label>
-                                            </span>
-                                        </li>
-
-
-
-                                    </ul>
-                                </div>
-                            </aside>
-
-
-
-                            <aside class="aside-item filter-type">
-                                <div class="aside-title">Loại</div>
-                                <div class="aside-content filter-group">
-                                    <div class="field-search input-group">
-                                        <input type="text" placeholder="Tìm Loại" class="form-control filter-type-list" onkeyup="filterItemInList(jQuery('.filter-type-list'))">
-                                        <button class="btn btn-default">
-                                            <svg viewBox="0 0 451 451" style="width:20px;">
-                                                <g fill="#000">
-                                                    <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
+                            <div class="aside-title">Thương hiệu</div>
+                            <div class="aside-content filter-group">
+                                <div class="field-search input-group">
+                                    <input type="text" placeholder="Tìm Thương Hiệu" class="form-control filter-type-list">
+                                    <button class="btn btn-default">
+                                        <svg viewBox="0 0 451 451" style="width:20px;">
+                                            <g fill="#000">
+                                                <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
                                                  s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
                                                  C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
                                                  s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <ul class="filter-type">
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
-                                            <label data-filter="kiến thức - kỹ năng sống cho trẻ" for="filter-kien-thuc-ky-nang-song-cho-tre">
-                                                <input type="checkbox" id="filter-kien-thuc-ky-nang-song-cho-tre" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type.filter_key" data-text="Kiến Thức - Kỹ Năng Sống Cho Trẻ" value="(&quot;Kiến Thức - Kỹ Năng Sống Cho Trẻ&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Kiến Thức - Kỹ Năng Sống Cho Trẻ
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
-                                            <label data-filter="kiến thức bách khoa" for="filter-kien-thuc-bach-khoa">
-                                                <input type="checkbox" id="filter-kien-thuc-bach-khoa" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type.filter_key" data-text="Kiến Thức Bách Khoa" value="(&quot;Kiến Thức Bách Khoa&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Kiến Thức Bách Khoa
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
-                                            <label data-filter="phát triển kỹ năng" for="filter-phat-trien-ky-nang">
-                                                <input type="checkbox" id="filter-phat-trien-ky-nang" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type.filter_key" data-text="Phát triển kỹ năng" value="(&quot;Phát triển kỹ năng&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Phát triển kỹ năng
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
-                                            <label data-filter="rèn luyện nhân cách" for="filter-ren-luyen-nhan-cach">
-                                                <input type="checkbox" id="filter-ren-luyen-nhan-cach" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type.filter_key" data-text="Rèn Luyện Nhân Cách" value="(&quot;Rèn Luyện Nhân Cách&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Rèn Luyện Nhân Cách
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
-                                            <label data-filter="sách cho tuổi mới lớn" for="filter-sach-cho-tuoi-moi-lon">
-                                                <input type="checkbox" id="filter-sach-cho-tuoi-moi-lon" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type.filter_key" data-text="Sách Cho Tuổi Mới Lớn" value="(&quot;Sách Cho Tuổi Mới Lớn&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Sách Cho Tuổi Mới Lớn
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
-                                            <label data-filter="sách kỹ năng sống" for="filter-sach-ky-nang-song">
-                                                <input type="checkbox" id="filter-sach-ky-nang-song" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type.filter_key" data-text="Sách Kỹ Năng Sống" value="(&quot;Sách Kỹ Năng Sống&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Sách Kỹ Năng Sống
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
-                                            <label data-filter="sách tâm lý - kỹ năng sống" for="filter-sach-tam-ly-ky-nang-song">
-                                                <input type="checkbox" id="filter-sach-tam-ly-ky-nang-song" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type.filter_key" data-text="Sách Tâm Lý - Kỹ Năng Sống" value="(&quot;Sách Tâm Lý - Kỹ Năng Sống&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Sách Tâm Lý - Kỹ Năng Sống
-                                            </label>
-                                        </li>
-
-
-
-                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
-                                            <label data-filter="tâm lý" for="filter-tam-ly">
-                                                <input type="checkbox" id="filter-tam-ly" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type.filter_key" data-text="Tâm Lý" value="(&quot;Tâm Lý&quot;)" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Tâm Lý
-                                            </label>
-                                        </li>
-
-
-                                    </ul>
+                                            </g>
+                                        </svg>
+                                    </button>
                                 </div>
-                            </aside>*@
+                                <ul class="filter-type">
+
+                                    @foreach (var publisher in ViewBag.ListPublisher)
+                                    {
+                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
+                                            <label>
+                                                @if (publisher.ID == ViewBag.Publisher)
+                                                {
+                                                    <input type="checkbox" id="@publisher.Name" name="thuong-hieu" onclick="getFilter(@ViewBag.Cate,@ViewBag.Type, @ViewBag.Language,-1)" checked />
+                                                    <i class="fa"></i>
+                                                    @publisher.Name
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" id="@publisher.Name" name="thuong-hieu" onclick="getFilter(@ViewBag.Cate,@ViewBag.Type, @ViewBag.Language,@publisher.ID)" />
+                                                    <i class="fa"></i>
+                                                    @publisher.Name
+                                                }
+
+                                            </label>
+                                        </li>
+                                    }
+
+                                </ul>
+                            </div>
+
+                            <hr style="margin-bottom:6px;margin-top:6px" />
+
+
+                            <div class="aside-title" style="">Hình thức</div>
+                            <div class="aside-content filter-group">
+                                <div class="field-search input-group">
+                                    <input type="text" placeholder="Tìm Hình Thức" class="form-control filter-type-list">
+                                    <button class="btn btn-default">
+                                        <svg viewBox="0 0 451 451" style="width:20px;">
+                                            <g fill="#000">
+                                                <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
+                                                 s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
+                                                 C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
+                                                 s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <ul class="filter-type">
+
+                                    @foreach (var type in ViewBag.ListType)
+                                    {
+                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
+                                            <label>
+                                                @if (type.ID == ViewBag.Type)
+                                                {
+                                                    <input type="checkbox" id="@type.Name" name="hinh-thuc" onclick="getFilter(@ViewBag.Cate,0)" checked />
+                                                    <i class="fa"></i>
+                                                    @type.Name
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" id="@type.Name" name="hinh-thuc" onclick="getFilter(@ViewBag.Cate,@type.ID)" />
+                                                    <i class="fa"></i>
+                                                    @type.Name
+                                                }
+
+                                            </label>
+                                        </li>
+                                    }
+
+                                </ul>
+                            </div>
+
+                            <hr style="margin-bottom:6px;margin-top:6px" />
+
+                            <div class="aside-title">Ngôn ngữ</div>
+                            <div class="aside-content filter-group">
+                                <div class="field-search input-group">
+                                    <input type="text" placeholder="Tìm Ngôn Ngữ" class="form-control filter-type-list">
+                                    <button class="btn btn-default">
+                                        <svg viewBox="0 0 451 451" style="width:20px;">
+                                            <g fill="#000">
+                                                <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
+                                                 s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
+                                                 C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
+                                                 s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <ul class="filter-type">
+
+                                    @foreach (var language in ViewBag.ListLanguage)
+                                    {
+                                        <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
+                                            <label>
+                                                @if (language.ID == ViewBag.Language)
+                                                {
+                                                    <input type="checkbox" id="@language.Name" name="ngon-ngu" onclick="getFilter(@ViewBag.Cate,@ViewBag.Type, 0)" checked />
+                                                    <i class="fa"></i>
+                                                    @language.Name
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" id="@language.Name" name="ngon-ngu" onclick="getFilter(@ViewBag.Cate,@ViewBag.Type, @language.ID)" />
+                                                    <i class="fa"></i>
+                                                    @language.Name
+                                                }
+
+                                            </label>
+                                        </li>
+                                    }
+
+                                </ul>
+                            </div>
+
+
+                        </aside>
 
 
                     </div>
@@ -778,12 +312,12 @@
 
                                 @if (ViewBag.PresentPage > 1)
                                 {
-                                    <li class="page-item "><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage-1)" title="«">«</a></li>
+                                    <li class="page-item "><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage-1)&cate=@ViewBag.Cate" title="«">«</a></li>
                                 }
 
                                 @if (ViewBag.PresentPage > 4 && ViewBag.MaxPage > 5)
                                 {
-                                    <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=1" title="1">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=1&cate=@ViewBag.Cate" title="1">1</a></li>
                                     <li class="page-item"><a class="page-link" href="javascript:;" title="...">...</a></li>
                                 }
 
@@ -795,7 +329,7 @@
                                     }
                                     else
                                     {
-                                        <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@i" title="@i">@i</a></li>
+                                        <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@i&cate=@ViewBag.Cate" title="@i">@i</a></li>
                                     }
 
                                 }
@@ -803,43 +337,13 @@
                                 @if (@ViewBag.PresentPage <= (@ViewBag.MaxPage - 3) && ViewBag.MaxPage > 5)
                                 {
                                     <li class="page-item"><a class="page-link" href="" title="...">...</a></li>
-                                    <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@ViewBag.MaxPage" title="@ViewBag.MaxPage">@ViewBag.MaxPage</a></li>
+                                    <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@ViewBag.MaxPage&cate=@ViewBag.Cate" title="@ViewBag.MaxPage">@ViewBag.MaxPage</a></li>
                                 }
 
                                 @if (ViewBag.PresentPage < ViewBag.MaxPage)
                                 {
-                                    <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage+1)" title="»">»</a></li>
+                                    <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage+1)&cate=@ViewBag.Cate" title="»">»</a></li>
                                 }
-                                @*<li class="page-item disabled"><a class="page-link" href="#" title="«">«</a></li>
-
-
-
-
-        <li class="active page-item disabled"><a class="page-link" href="javascript:;" title="1">1</a></li>
-
-
-
-
-        <li class="page-item"><a class="page-link" onclick="doSearch(2)" href="javascript:;" title="2">2</a></li>
-
-
-
-        <li class="page-item"><a class="page-link" onclick="doSearch(3)" href="javascript:;" title="3">3</a></li>
-
-
-
-
-        <li class="page-item"><a class="page-link" href="javascript:;" title="...">...</a></li>
-
-
-
-
-        <li class="page-item"><a class="page-link" onclick="doSearch(60)" href="javascript:;" title="60">60</a></li>
-
-
-
-
-        <li class="page-item"><a class="page-link" onclick="doSearch(2)" href="javascript:;" title="»">»</a></li>*@
 
                             </ul>
                         </nav>
@@ -852,6 +356,44 @@
         </section>
     </div>
 </div>
+
+<script type="text/javascript">
+    $("input:checkbox").on('click', function () {
+        var $box = $(this);
+        if ($box.is(":checked")) {
+            var group = "input:checkbox[name='" + $box.attr("name") + "']";
+            $(group).prop("checked", false);
+            $box.prop("checked", true);
+        } else {
+            $box.prop("checked", false);
+        }
+    });
+
+    function getFilter(cate = '@ViewBag.Cate', type = '@ViewBag.Type', language = '@ViewBag.Language', publisher = '@ViewBag.Publisher') {
+
+        //var getID = event.srcElement.id;
+        var text = $(".form-control")[0].value;
+        var page = 1;
+
+        //var checkBox = document.getElementById(getID);
+        //var nameCheckBox = document.getElementById(getID).name;
+        //if (checkBox.checked == true) {
+        //} else if (nameCheckBox == 'the-loai') {
+        //    cate = 0;
+        //} else if (nameCheckBox == 'hinh-thuc') {
+        //    type = 0;
+        //} else if (nameCheckBox == 'ngon-ngu') {
+        //    language = 0;
+        //} else if (nameCheckBox == 'thuong-hieu')
+        //    publisher = -1;
+
+
+        let url = `?text=${text}&page=${page}&cate=${cate}&type=${type}&language=${language}&publisher=${publisher}`
+        window.location.href = url
+    }
+</script>
+
+
 
 
 

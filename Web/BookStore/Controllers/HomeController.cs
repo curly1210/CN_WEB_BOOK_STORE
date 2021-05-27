@@ -16,14 +16,24 @@ namespace BookStore.Controllers
             return View(db.GetHomePage());
         }
 
-        public ActionResult List(string text = "", int page = 1)
+        public ActionResult List(string text = "", int page = 1, int cate = 0, int type = 0, int language = 0, int publisher = -1)
         {
+            ViewBag.ListCate = db.GetCategories();
+            ViewBag.ListPublisher = db.GetPublishers();
+            ViewBag.ListType = db.GetTypes();
+            ViewBag.ListLanguage = db.GetLanguages();
+
             ViewBag.TextSearch = text;
             ViewBag.PresentPage = page;
-            ListBook list = db.GetListBook(text, page);
-            ViewBag.Count = list.books.Count();
+            ViewBag.Cate = cate;
+            ViewBag.Publisher = publisher;
+            ViewBag.Type = type;
+            ViewBag.Language = language;
+
+            ListBook list = db.GetListBook(text, page, cate, type,language,publisher);
             ViewBag.ListPage = SupportFuntions.getNumberPage(page, list.page);
             ViewBag.MaxPage = list.page;
+
             return View(list.books);
         }
         public ActionResult Detail(int id)
