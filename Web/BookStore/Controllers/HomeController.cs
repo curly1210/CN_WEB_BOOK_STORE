@@ -16,21 +16,23 @@ namespace BookStore.Controllers
             return View(db.GetHomePage());
         }
 
-        public ActionResult List(string text = "", int page = 1, int cate = 0, int type = 0, int language = 0, int publisher = -1)
+        public ActionResult List(string text = "", int page = 1, int cate = 0, int type = 0, int language = 0, int cost=0)
         {
             ViewBag.ListCate = db.GetCategories();
-            ViewBag.ListPublisher = db.GetPublishers();
+            ViewBag.ListCost = db.GetCost();
+            //ViewBag.ListPublisher = db.GetPublishers();
             ViewBag.ListType = db.GetTypes();
             ViewBag.ListLanguage = db.GetLanguages();
 
             ViewBag.TextSearch = text;
             ViewBag.PresentPage = page;
             ViewBag.Cate = cate;
-            ViewBag.Publisher = publisher;
+            ViewBag.Cost = cost;
+            //ViewBag.Publisher = publisher;
             ViewBag.Type = type;
             ViewBag.Language = language;
 
-            ListBook list = db.GetListBook(text, page, cate, type,language,publisher);
+            ListBook list = db.GetListBook(text, page, cate, type,language,cost);
             ViewBag.ListPage = SupportFuntions.getNumberPage(page, list.page);
             ViewBag.MaxPage = list.page;
 

@@ -20,6 +20,17 @@ namespace BookStore.Models.DBInteractive
 
     }
 
+    public class HowMuch
+    {
+        public int ID { get; set; }
+        public string NameCost { get; set; }
+
+        public HowMuch(int ID, string NameCost)
+        {
+            this.ID = ID;
+            this.NameCost = NameCost;
+        }
+    }
 
     public class BookStoreDB
     {
@@ -46,7 +57,7 @@ namespace BookStore.Models.DBInteractive
             return list;
         }
 
-        public ListBook GetListBook(string text = "", int page = 1, int cate = 0, int type = 0, int language = 0, int publisher = -1)
+        public ListBook GetListBook(string text = "", int page = 1, int cate = 0, int type = 0, int language = 0, int cost = 0)
         {
             int pageSize = 12;
             var removeUnicode = SupportFuntions.RemoveUnicode(text);
@@ -56,14 +67,39 @@ namespace BookStore.Models.DBInteractive
             if (cate != 0)
                 listBook = listBook.Where(m => m.idCategory == cate);
 
-            if (publisher != -1)
-                listBook = listBook.Where(m => m.idPublisher == publisher);
+            //if (publisher != -1)
+            //    listBook = listBook.Where(m => m.idPublisher == publisher);
 
             if (type != 0)
                 listBook = listBook.Where(m => m.idType == type);
 
             if (language != 0)
                 listBook = listBook.Where(m => m.idLanguage == language);
+
+            if (cost == 1)
+            {
+                listBook = listBook.Where(m => m.Price < 100000);
+            }
+            else if (cost == 2)
+            {
+                listBook = listBook.Where(m => m.Price >= 100000 && m.Price < 200000);
+            }
+            else if (cost == 3)
+            {
+                listBook = listBook.Where(m => m.Price >= 200000 && m.Price < 300000);
+            }
+            else if (cost == 4)
+            {
+                listBook = listBook.Where(m => m.Price >= 300000 && m.Price < 500000);
+            }
+            else if (cost == 5)
+            {
+                listBook = listBook.Where(m => m.Price >= 500000 && m.Price < 1000000);
+            }
+            else if (cost == 6)
+            {
+                listBook = listBook.Where(m => m.Price >= 1000000);
+            }
 
             int maxPage;
             int countItem = listBook.Count();
@@ -126,5 +162,28 @@ namespace BookStore.Models.DBInteractive
         {
             return StoreDB.Publishers.ToList();
         }
+
+        //Lấy khoảng giá
+        public List<HowMuch> GetCost()
+        {
+            HowMuch howMuch1 = new HowMuch(1, "Giá dưới 100.000đ");
+            HowMuch howMuch2 = new HowMuch(2, "100.000đ - 200.000đ");
+            HowMuch howMuch3 = new HowMuch(3, "200.000đ - 300.000đ");
+            HowMuch howMuch4 = new HowMuch(4, "300.000đ - 500.000đ");
+            HowMuch howMuch5 = new HowMuch(5, "500.000đ - 1.000.000đ");
+            HowMuch howMuch6 = new HowMuch(6, "Giá trên 1.000.000đ");
+
+            List<HowMuch> list = new List<HowMuch>();
+            list.Add(howMuch1);
+            list.Add(howMuch2);
+            list.Add(howMuch3);
+            list.Add(howMuch4);
+            list.Add(howMuch5);
+            list.Add(howMuch6);
+
+            return list;
+        }
+
+
     }
 }

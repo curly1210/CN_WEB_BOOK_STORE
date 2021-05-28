@@ -59,7 +59,7 @@
                         </div>
                         <div class="clearfix"></div>
 
-
+                        <a class="btn btn-primary" style="background-color:#03a9f4" href="/Home/List" role="button">Bỏ bộ lọc</a>
 
                         <aside class="aside-item filter-type">
                             <div class="aside-title">Thể loại</div>
@@ -105,10 +105,10 @@
 
                             <hr style="margin-bottom:6px;margin-top:6px" />
 
-                            <div class="aside-title">Thương hiệu</div>
+                            <div class="aside-title">Giá sản phẩm</div>
                             <div class="aside-content filter-group">
                                 <div class="field-search input-group">
-                                    <input type="text" placeholder="Tìm Thương Hiệu" class="form-control filter-type-list">
+                                    <input type="text" placeholder="Tìm Loại" class="form-control filter-type-list">
                                     <button class="btn btn-default">
                                         <svg viewBox="0 0 451 451" style="width:20px;">
                                             <g fill="#000">
@@ -122,21 +122,21 @@
                                 </div>
                                 <ul class="filter-type">
 
-                                    @foreach (var publisher in ViewBag.ListPublisher)
+                                    @foreach (var cost in ViewBag.ListCost)
                                     {
                                         <li class="filter-item filter-item--check-box filter-item--green" style="display: list-item;">
                                             <label>
-                                                @if (publisher.ID == ViewBag.Publisher)
+                                                @if (cost.ID == ViewBag.Cost)
                                                 {
-                                                    <input type="checkbox" id="@publisher.Name" name="thuong-hieu" onclick="getFilter(@ViewBag.Cate,@ViewBag.Type, @ViewBag.Language,-1)" checked />
+                                                    <input type="checkbox" id="@cost.NameCost" name="gia-ca" onclick="getFilter(@ViewBag.Cate,@ViewBag.Type, @ViewBag.Language,0)" checked />
                                                     <i class="fa"></i>
-                                                    @publisher.Name
+                                                    @cost.NameCost
                                                 }
                                                 else
                                                 {
-                                                    <input type="checkbox" id="@publisher.Name" name="thuong-hieu" onclick="getFilter(@ViewBag.Cate,@ViewBag.Type, @ViewBag.Language,@publisher.ID)" />
+                                                    <input type="checkbox" id="@cost.NameCost" name="gia-ca" onclick="getFilter(@ViewBag.Cate,@ViewBag.Type, @ViewBag.Language,@cost.ID)" />
                                                     <i class="fa"></i>
-                                                    @publisher.Name
+                                                    @cost.NameCost
                                                 }
 
                                             </label>
@@ -147,7 +147,6 @@
                             </div>
 
                             <hr style="margin-bottom:6px;margin-top:6px" />
-
 
                             <div class="aside-title" style="">Hình thức</div>
                             <div class="aside-content filter-group">
@@ -312,7 +311,7 @@
 
                                 @if (ViewBag.PresentPage > 1)
                                 {
-                                    <li class="page-item "><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage-1)&cate=@ViewBag.Cate" title="«">«</a></li>
+                                    <li class="page-item "><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage-1)&cate=@ViewBag.Cate&type=@ViewBag.Type&language=@ViewBag.Language&publisher=@ViewBag" title="«">«</a></li>
                                 }
 
                                 @if (ViewBag.PresentPage > 4 && ViewBag.MaxPage > 5)
@@ -369,7 +368,7 @@
         }
     });
 
-    function getFilter(cate = '@ViewBag.Cate', type = '@ViewBag.Type', language = '@ViewBag.Language', publisher = '@ViewBag.Publisher') {
+    function getFilter(cate = '@ViewBag.Cate', type = '@ViewBag.Type', language = '@ViewBag.Language', cost = '@ViewBag.Cost') {
 
         //var getID = event.srcElement.id;
         var text = $(".form-control")[0].value;
@@ -388,7 +387,7 @@
         //    publisher = -1;
 
 
-        let url = `?text=${text}&page=${page}&cate=${cate}&type=${type}&language=${language}&publisher=${publisher}`
+        let url = `?text=${text}&page=${page}&cate=${cate}&type=${type}&language=${language}&cost=${cost}`
         window.location.href = url
     }
 </script>
