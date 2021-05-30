@@ -44,5 +44,10 @@ namespace BookStore.Controllers
 
             return View(db.GetDetailBook(id));
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }

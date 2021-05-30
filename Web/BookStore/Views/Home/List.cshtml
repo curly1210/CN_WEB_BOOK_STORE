@@ -107,7 +107,7 @@
 
                             <div class="aside-title">Giá sản phẩm</div>
                             <div class="aside-content filter-group">
-                                <div class="field-search input-group">
+                                @*<div class="field-search input-group">
                                     <input type="text" placeholder="Tìm Loại" class="form-control filter-type-list">
                                     <button class="btn btn-default">
                                         <svg viewBox="0 0 451 451" style="width:20px;">
@@ -119,7 +119,7 @@
                                             </g>
                                         </svg>
                                     </button>
-                                </div>
+                                </div>*@
                                 <ul class="filter-type">
 
                                     @foreach (var cost in ViewBag.ListCost)
@@ -368,24 +368,10 @@
         }
     });
 
-    function getFilter(cate = '@ViewBag.Cate', type = '@ViewBag.Type', language = '@ViewBag.Language', cost = '@ViewBag.Cost') {
-
+    function getFilter(cate , type , language , cost ) {
         //var getID = event.srcElement.id;
         var text = $(".form-control")[0].value;
         var page = 1;
-
-        //var checkBox = document.getElementById(getID);
-        //var nameCheckBox = document.getElementById(getID).name;
-        //if (checkBox.checked == true) {
-        //} else if (nameCheckBox == 'the-loai') {
-        //    cate = 0;
-        //} else if (nameCheckBox == 'hinh-thuc') {
-        //    type = 0;
-        //} else if (nameCheckBox == 'ngon-ngu') {
-        //    language = 0;
-        //} else if (nameCheckBox == 'thuong-hieu')
-        //    publisher = -1;
-
 
         let url = `?text=${text}&page=${page}&cate=${cate}&type=${type}&language=${language}&cost=${cost}`
         window.location.href = url

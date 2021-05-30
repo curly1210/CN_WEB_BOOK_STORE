@@ -1,5 +1,32 @@
 ﻿
-<header class="container" style="margin-top:100px">
+<style>
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        margin-top: 10px;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
+
+<header class="container" style="margin-top:100px; margin-left:160px">
 
     <div class="row" style="margin-top:-70px">
         <div class="col">
@@ -7,10 +34,10 @@
                 <img style="width:100%;min-height:40px;max-height:40px;object-fit:contain" src="//bizweb.dktcdn.net/100/386/441/themes/764408/assets/logo.png?1621496047879" />
             </a>
         </div>
-        <div class="col-lg-5 col-12 evo-search">
+        <div class="col-lg-5 col-12 evo-search" style="margin-left:-10px">
             <form action="/Home/List" method="get" class="evo-search-form has-validation-callback">
                 <div class="input-group">
-                    <input type="text" aria-label="Tìm sản phẩm" name="text" value="@ViewBag.TextSearch" class="search-auto form-control" placeholder="Tìm kiếm" >
+                    <input type="text" aria-label="Tìm sản phẩm" name="text" value="@ViewBag.TextSearch" class="search-auto form-control" placeholder="Tìm kiếm">
                     <span class="input-group-append">
                         <button class="btn btn-default" style="border: 1px solid #03a9f4; background-color: #03a9f4;" type="submit" aria-label="Tìm kiếm">
                             <svg viewBox="0 0 451 451" style="width:20px;">
@@ -27,11 +54,34 @@
             </form>
         </div>
 
-        <div class="col" style="margin-top:-5px">
+        <div class="col" style="margin-top:-5px; margin-left:50px">
             <a href="tel:094.1234.828" title="Hotline" style="text-decoration:none">
                 <p class="title" style="color:black">Giờ mở cửa (08:00 - 22:00)</p>
                 <p class="number_phone hvr-buzz-out" style="margin-top:-19px"><img src="//bizweb.dktcdn.net/100/386/441/themes/764408/assets/hotline.svg?1621496047879" style="width:20px;" alt="Hotline"> 094.1234.828</p>
             </a>
+        </div>
+
+
+        <div class="dropdown">
+            <a title="Tài khoản" aria-label="Tài khoản" rel="nofollow">
+                <svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" width="25px" height="25px">
+                    <g>
+                        <path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148    C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962    c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216    h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40    c59.551,0,108,48.448,108,108S315.551,256,256,256z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#000"></path>
+                    </g>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a rel="nofollow" href="/Home/Login" title="Đăng nhập">Đăng nhập</a>
+                <a rel="nofollow" href="/account/register" title="Đăng ký">Đăng ký</a>
+            </div>
+        </div>
+
+        <div class="evo-cart mini-cart" style="margin-left:20px">
+            <a href="/cart" title="Giỏ hàng" aria-label="Giỏ hàng" rel="nofollow">
+                <svg viewBox="0 0 100 100" data-radium="true" style="width: 25px;"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-286.000000, -515.000000)" fill="#000"><path d="M374.302082,541.184324 C374.044039,539.461671 372.581799,538.255814 370.861517,538.255814 L351.078273,538.255814 L351.078273,530.159345 C351.078273,521.804479 344.283158,515 335.93979,515 C327.596422,515 320.801307,521.804479 320.801307,530.159345 L320.801307,538.255814 L301.018063,538.255814 C299.297781,538.255814 297.835541,539.461671 297.577499,541.184324 L286.051608,610.951766 C285.87958,611.985357 286.137623,613.018949 286.825735,613.794143 C287.513848,614.569337 288.460003,615 289.492173,615 L382.387408,615 L382.473422,615 C384.451746,615 386,613.449612 386,611.468562 C386,611.037898 385.913986,610.693368 385.827972,610.348837 L374.302082,541.184324 L374.302082,541.184324 Z M327.854464,530.159345 C327.854464,525.680448 331.467057,522.062877 335.93979,522.062877 C340.412524,522.062877 344.025116,525.680448 344.025116,530.159345 L344.025116,538.255814 L327.854464,538.255814 L327.854464,530.159345 L327.854464,530.159345 Z M293.62085,608.023256 L304.028557,545.318691 L320.801307,545.318691 L320.801307,565.043066 C320.801307,567.024117 322.349561,568.574505 324.327886,568.574505 C326.30621,568.574505 327.854464,567.024117 327.854464,565.043066 L327.854464,545.318691 L344.025116,545.318691 L344.025116,565.043066 C344.025116,567.024117 345.57337,568.574505 347.551694,568.574505 C349.530019,568.574505 351.078273,567.024117 351.078273,565.043066 L351.078273,545.318691 L367.851024,545.318691 L378.25873,608.023256 L293.62085,608.023256 L293.62085,608.023256 Z"></path></g></g></svg>
+                <span style=" height: 25px; width: 25px; background-color: #03a9f4;color:white ;border-radius: 50%; display: inline-block;">0</span>
+            </a>
+           
         </div>
     </div>
 
