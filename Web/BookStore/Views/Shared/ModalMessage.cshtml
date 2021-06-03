@@ -1,0 +1,35 @@
+﻿<div class="modal" tabindex="-1" role="dialog" id="messageModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:white">
+                <h5 class="modal-title" style="color: black; padding-left: 0rem; min-height: 0px; font-size: 1.25rem;font-weight:500">Thông báo</h5>
+                <button type="button"  data-dismiss="modal" style="border: 0; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5; " aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="message">
+                @TempData[BookStore.Utils.Note.TEMDATA.Message]
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<script>
+    const showMessage = () => {
+        $("#messageModal").modal('show');
+    }
+
+    const hideMessage = () => {
+        $("#messageModal").modal('hide');
+    }
+
+    if (document
+        .getElementById("message").textContent.trim().length > 0) {
+        console.log("run")
+        setTimeout(() => {
+            showMessage();
+        }, 300);
+    }
+
+</script>

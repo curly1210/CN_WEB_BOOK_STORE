@@ -184,6 +184,15 @@ namespace BookStore.Models.DBInteractive
             return list;
         }
 
+        public User Login(string phone, string password)
+        {
+            string hashPass = SupportFuntions.sha256(password);
+            var user = StoreDB.Users.Where(x => x.Phone == phone && x.Password == hashPass);
+            if (user.Count() >= 1)
+                return user.First();
+            return null;
+        }
+
 
     }
 }

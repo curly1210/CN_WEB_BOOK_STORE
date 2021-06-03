@@ -368,7 +368,7 @@
         }
     });
 
-    function getFilter(cate , type , language , cost ) {
+    function getFilter(cate = '@ViewBag.Cate', type = '@ViewBag.Type', language = '@ViewBag.Language', cost = '@ViewBag.Cost') {
         //var getID = event.srcElement.id;
         var text = $(".form-control")[0].value;
         var page = 1;

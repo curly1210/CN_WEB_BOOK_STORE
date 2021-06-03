@@ -1,10 +1,12 @@
 ﻿using BookStore.Models.DBInteractive;
+using BookStore.Models.Entities;
 using BookStore.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BookStore.Controllers
 {
@@ -16,7 +18,7 @@ namespace BookStore.Controllers
             return View(db.GetHomePage());
         }
 
-        public ActionResult List(string text = "", int page = 1, int cate = 0, int type = 0, int language = 0, int cost=0)
+        public ActionResult List(string text = "", int page = 1, int cate = 0, int type = 0, int language = 0, int cost = 0)
         {
             ViewBag.ListCate = db.GetCategories();
             ViewBag.ListCost = db.GetCost();
@@ -32,7 +34,7 @@ namespace BookStore.Controllers
             ViewBag.Type = type;
             ViewBag.Language = language;
 
-            ListBook list = db.GetListBook(text, page, cate, type,language,cost);
+            ListBook list = db.GetListBook(text, page, cate, type, language, cost);
             ViewBag.ListPage = SupportFuntions.getNumberPage(page, list.page);
             ViewBag.MaxPage = list.page;
 
@@ -45,9 +47,46 @@ namespace BookStore.Controllers
             return View(db.GetDetailBook(id));
         }
 
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl = "")
         {
+            if (Session[Note.SESSION.UserInfor] != null)
+                return RedirectToAction("Index", "Home");
+
+            ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string phone, string password, string returnUrl)
+        {
+            User user = db.Login(phone, password);
+            if (user != null)
+            {
+                if (user.is_ban == 1)
+                {
+                    TempData[Note.TEMDATA.Message] = "Tài khoản của bạn bị khóa, vui lòng liên hệ để biết thêm chi tiết";
+                    return RedirectToAction("Login", "Home", new { returnUrl });
+                }
+                Session[Note.SESSION.UserInfor] = user;
+            }
+            else
+            {
+                TempData[Note.TEMDATA.Message] = "Sai tài khoản hoặc mật khẩu";
+                return RedirectToAction("Login", "Home", new { returnUrl });
+            }
+
+            if (user.ID.Equals(Note.id_Admin))
+                return RedirectToAction("Index", "Admin");
+
+
+            return Redirect(returnUrl);
+        }
+
+        public ActionResult Logout()
+        {
+            Session[Note.SESSION.UserInfor] = null;
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
