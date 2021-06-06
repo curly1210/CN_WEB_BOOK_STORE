@@ -3,14 +3,20 @@
         <div class="modal-content">
             <div class="modal-header" style="background-color:white">
                 <h5 class="modal-title" style="color: black; padding-left: 0rem; min-height: 0px; font-size: 1.25rem;font-weight:500">Thông báo</h5>
-                <button type="button"  data-dismiss="modal" style="border: 0; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5; " aria-label="Close">
+                <button type="button" data-dismiss="modal" style="border: 0; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5; " aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body" id="message">
                 @TempData[BookStore.Utils.Note.TEMDATA.Message]
             </div>
-           
+            @if (TempData[BookStore.Utils.Note.TEMDATA.RequireLogin] != null)
+            {
+                <div class="modal-footer">
+                    <button onclick="goToLoginPage()" type="button" style="color: white; background-color: #03a9f4" class="btn">Đăng nhập</button>
+                </div>
+            }
+
         </div>
     </div>
 </div>
@@ -33,3 +39,4 @@
     }
 
 </script>
+

@@ -42,6 +42,7 @@ namespace BookStore.Controllers
         }
         public ActionResult Detail(int id)
         {
+            
             ViewBag.RecommendBook = db.GetBookRecommned();
 
             return View(db.GetDetailBook(id));
@@ -52,6 +53,7 @@ namespace BookStore.Controllers
             if (Session[Note.SESSION.UserInfor] != null)
                 return RedirectToAction("Index", "Home");
 
+            ViewBag.TotalCart = 0;
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -77,7 +79,8 @@ namespace BookStore.Controllers
 
             if (user.ID.Equals(Note.id_Admin))
                 return RedirectToAction("Index", "Admin");
-
+            if (returnUrl.Equals(""))
+                return RedirectToAction("Index", "Home");
 
             return Redirect(returnUrl);
         }
@@ -85,6 +88,7 @@ namespace BookStore.Controllers
         public ActionResult Logout()
         {
             Session[Note.SESSION.UserInfor] = null;
+            Session[Note.SESSION.Cart] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }

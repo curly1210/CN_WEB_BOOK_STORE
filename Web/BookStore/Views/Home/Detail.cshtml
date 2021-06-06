@@ -29,7 +29,7 @@
                                 <div aria-live="polite" class="slick-list draggable">
                                     <div class="slick-track" role="listbox" style="opacity: 1; width: 83px; transform: translate3d(0px, 0px, 0px);">
                                         <div class="fixs slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide20" style="width: 73px;">
-                                            <img class="lazy loaded" src="@Model.Images.First().Url"  alt="@Model.Title" data-was-processed="true">
+                                            <img class="lazy loaded" src="@Model.Images.First().Url" alt="@Model.Title" data-was-processed="true">
                                         </div>
                                     </div>
                                 </div>
@@ -88,25 +88,27 @@
                             </span> <!-- Giás gốc -->
                             <span class="save-price">
                                 Tiết kiệm:
-                                <span class="price product-price-save"> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price * 1.1 - (double)Model.Price )đ</span>
+                                <span class="price product-price-save"> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price * 1.1 - (double)Model.Price)đ</span>
                             </span> <!-- Tiết kiệm -->
 
                         </div>
 
                     </div>
                     <div class="form-product">
-                        <form enctype="multipart/form-data" id="add-to-cart-form" action="/cart/add" method="post" class="clearfix form-inline has-validation-callback">
+                        <form enctype="multipart/form-data" id="add-to-cart-form" action="/Home/Detail" method="get" class="clearfix form-inline has-validation-callback">
+                            <input name="idBook" hidden value="@Model.ID" />
                             <div class="clearfix form-group ">
                                 <div class="qty-ant clearfix custom-btn-number">
                                     @*<label class="d-none">Số lượng:</label>*@
                                     <div class="custom custom-btn-numbers form-control">
                                         <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN(qty) &amp; qty > 1 ) result.value--;return false;" class="btn-minus btn-cts" type="button">–</button>
                                         <input type="text" class="qty input-text" id="qty" name="quantity" size="4" value="1" maxlength="3">
+                                        <input name="id" hidden value="@Model.ID" />
                                         <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;" class="btn-plus btn-cts" type="button">+</button>
                                     </div>
                                 </div>
                                 <div class="btn-mua">
-                                    <button type="submit" data-role="addtocart" class="btn btn-lg btn-gray btn-cart btn_buy add_to_cart">Thêm vào giỏ</button>
+                                    <button type="submit" onclick="addToCart(@Model.ID)" data-role="addtocart"   class="btn btn-lg btn-gray btn-cart btn_buy add_to_cart">Thêm vào giỏ</button>
                                 </div>
                             </div>
                         </form>
@@ -162,7 +164,7 @@
                         </ul>
 
                         <div id="tab-1" class="tab-content active current">
-                            <a class="evo-product-tabs-header d-sm-block d-md-none d-lg-none" >
+                            <a class="evo-product-tabs-header d-sm-block d-md-none d-lg-none">
                                 <span>Mô tả</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="5.658" height="9.903" viewBox="0 0 5.658 9.903">
                                     <path d="M5429 1331.94l4.451 4.451-4.451 4.452" stroke="#1c1c1c" stroke-linecap="round" fill="none" transform="translate(-5428.5 -1331.44)"></path>
@@ -177,7 +179,7 @@
             </div>
             <div class="col-lg-3 col-md-12 col-sm-12 col-12">
                 <div class="evo-product-and-banner">
-                    
+
 
                     <div class="evo-product-banner">
                         <div class="row">
@@ -196,4 +198,5 @@
         </div>
     </div>
 </div>
+
 

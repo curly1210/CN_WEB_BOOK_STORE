@@ -10,11 +10,13 @@ namespace BookStore.Utils
         public class TEMDATA
         {
             public static string Message = "Message";
+            public static string RequireLogin = "RequireLogin";
         }
 
         public class SESSION
         {
             public static string UserInfor = "UserInfor";
+            public static string Cart = "Cart";
         }
 
         public static int id_Admin = 4;

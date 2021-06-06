@@ -193,6 +193,11 @@ namespace BookStore.Models.DBInteractive
             return null;
         }
 
+        public Book GetBook(int id)
+        {
+            return StoreDB.Books.Find(id);
+        }
+
 
     }
 }
