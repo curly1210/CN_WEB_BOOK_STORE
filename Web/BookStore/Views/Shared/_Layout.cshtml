@@ -18,8 +18,10 @@
 
 <body style="background-color:white">
     @RenderPage("~/Views/Shared/Header.cshtml")
-    @RenderPage("~/Views/Shared/ModalMessage.cshtml");
-    @RenderBody()
+    @RenderPage("~/Views/Shared/ModalMessage.cshtml")
+    <div class="container pt-2">
+        @RenderBody()
+    </div>
 </body>
 </html>
 

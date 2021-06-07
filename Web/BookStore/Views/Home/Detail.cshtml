@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <div class="product-bg-white padding-top-15">
     <div class="container">
         <div class="details-product padding-bottom-10">
@@ -94,24 +95,26 @@
                         </div>
 
                     </div>
+
                     <div class="form-product">
-                        <form enctype="multipart/form-data" id="add-to-cart-form" action="/Home/Detail" method="get" class="clearfix form-inline has-validation-callback">
+                        <form enctype="multipart/form-data" id="" action="/" method="get" class="clearfix form-inline has-validation-callback">
                             <input name="idBook" hidden value="@Model.ID" />
                             <div class="clearfix form-group ">
                                 <div class="qty-ant clearfix custom-btn-number">
-                                    @*<label class="d-none">Số lượng:</label>*@
+                                    <label class="d-none">Số lượng:</label>
                                     <div class="custom custom-btn-numbers form-control">
                                         <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN(qty) &amp; qty > 1 ) result.value--;return false;" class="btn-minus btn-cts" type="button">–</button>
                                         <input type="text" class="qty input-text" id="qty" name="quantity" size="4" value="1" maxlength="3">
-                                        <input name="id" hidden value="@Model.ID" />
+                                        @*<input name="id" hidden value="@Model.ID" />*@
                                         <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;" class="btn-plus btn-cts" type="button">+</button>
                                     </div>
                                 </div>
                                 <div class="btn-mua">
-                                    <button type="submit" onclick="addToCart(@Model.ID)" data-role="addtocart"   class="btn btn-lg btn-gray btn-cart btn_buy add_to_cart">Thêm vào giỏ</button>
+                                    <button type="submit" onclick="addToCart(@Model.ID)" data-role="addtocart" class="btn btn-lg btn-gray btn-cart btn_buy add_to_cart">Thêm vào giỏ</button>
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 d-none d-lg-block">
@@ -199,4 +202,7 @@
     </div>
 </div>
 
+<script>
+    $('form').submit(false);
+</script>
 

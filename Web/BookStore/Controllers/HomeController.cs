@@ -42,7 +42,6 @@ namespace BookStore.Controllers
         }
         public ActionResult Detail(int id)
         {
-            
             ViewBag.RecommendBook = db.GetBookRecommned();
 
             return View(db.GetDetailBook(id));

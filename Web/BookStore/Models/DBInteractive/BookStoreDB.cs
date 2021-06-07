@@ -198,6 +198,13 @@ namespace BookStore.Models.DBInteractive
             return StoreDB.Books.Find(id);
         }
 
+        public List<Address> GetListAdressByIdUser(int idUser)
+        {
+            List<Address> list = new List<Address>();
+            list = StoreDB.Addresses.Where(x => x.idUser == idUser).ToList();
+            return list;
+        }
+
 
     }
 }

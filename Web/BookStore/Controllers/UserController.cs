@@ -151,5 +151,12 @@ namespace BookStore.Controllers
             return RedirectToAction("ListCart", "User");
         }
 
+        public ActionResult Payment()
+        {
+            User user = (User)Session[Note.SESSION.UserInfor];
+            ViewBag.ListAdress = db.GetListAdressByIdUser(user.ID);
+            return View();
+        }
+
     }
 }

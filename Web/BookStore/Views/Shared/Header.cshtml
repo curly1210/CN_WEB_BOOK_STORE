@@ -97,11 +97,11 @@
                     <svg viewBox="0 0 100 100" data-radium="true" style="width: 25px;"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-286.000000, -515.000000)" fill="#000"><path d="M374.302082,541.184324 C374.044039,539.461671 372.581799,538.255814 370.861517,538.255814 L351.078273,538.255814 L351.078273,530.159345 C351.078273,521.804479 344.283158,515 335.93979,515 C327.596422,515 320.801307,521.804479 320.801307,530.159345 L320.801307,538.255814 L301.018063,538.255814 C299.297781,538.255814 297.835541,539.461671 297.577499,541.184324 L286.051608,610.951766 C285.87958,611.985357 286.137623,613.018949 286.825735,613.794143 C287.513848,614.569337 288.460003,615 289.492173,615 L382.387408,615 L382.473422,615 C384.451746,615 386,613.449612 386,611.468562 C386,611.037898 385.913986,610.693368 385.827972,610.348837 L374.302082,541.184324 L374.302082,541.184324 Z M327.854464,530.159345 C327.854464,525.680448 331.467057,522.062877 335.93979,522.062877 C340.412524,522.062877 344.025116,525.680448 344.025116,530.159345 L344.025116,538.255814 L327.854464,538.255814 L327.854464,530.159345 L327.854464,530.159345 Z M293.62085,608.023256 L304.028557,545.318691 L320.801307,545.318691 L320.801307,565.043066 C320.801307,567.024117 322.349561,568.574505 324.327886,568.574505 C326.30621,568.574505 327.854464,567.024117 327.854464,565.043066 L327.854464,545.318691 L344.025116,545.318691 L344.025116,565.043066 C344.025116,567.024117 345.57337,568.574505 347.551694,568.574505 C349.530019,568.574505 351.078273,567.024117 351.078273,565.043066 L351.078273,545.318691 L367.851024,545.318691 L378.25873,608.023256 L293.62085,608.023256 L293.62085,608.023256 Z"></path></g></g></svg>
                     @if (carts != null)
                     {
-                        <span style=" height: 25px; width: 25px; background-color: #03a9f4;color:white ;border-radius: 50%; display: inline-block;">@carts.Count</span>
+                        <span id="QuantityCart" style=" height: 25px; width: 25px; background-color: #03a9f4;color:white ;border-radius: 50%; display: inline-block;">@carts.Count</span>
                     }
                     else
                     {
-                        <span style=" height: 25px; width: 25px; background-color: #03a9f4;color:white ;border-radius: 50%; display: inline-block;">0</span>
+                        <span id="QuantityCart" style=" height: 25px; width: 25px; background-color: #03a9f4;color:white ;border-radius: 50%; display: inline-block;">0</span>
                     }
                 </a>
 
@@ -140,6 +140,7 @@
             </div>
             </ul>
             </div>*@
+    </div>
 </nav>
 
 <script>
@@ -159,16 +160,21 @@
             showMessage()
 
         }
+
+        let buyNow = (ID) => {
+            addToCart(ID);
+        }
     </script>
 }
 
 @if (userInfo != null)
 {
     <script>
-        
+
         let addToCart = (id) => {
             let quantity = $("#qty").val();
-            if (quantity != undefined) {
+            //let span_text = document.getElementById("QuantityCart").innerText;
+                if (quantity != undefined) {
             } else {
                 quantity = 1;
             }
@@ -176,7 +182,7 @@
         }
 
         let changeCart = (id, quantity) => {
-            $.ajax({    
+            $.ajax({
                 type: "POST",
                 url: `/User/AddToCart`,
                 data: { id, quantity },
@@ -184,6 +190,10 @@
             });
             document.getElementById("message").textContent = "Sản phẩm vừa được thêm vào giỏ hàng";
             showMessage()
+        }
+
+        let buyNow = (ID) => {
+            window.location.href = `/User/Payment`;
         }
     </script>
 }

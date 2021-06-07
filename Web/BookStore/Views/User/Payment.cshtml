@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<BookStore.Models.Entities.Address> listAdress = ViewBag.ListAdress;
+
+}
+
+@*<link type="text/css" rel="stylesheet" href="https://nhasachphuongnam.com/var/cache/misc/assets/design/themes/energot/css/standalone.763bdb83a7bba9d2daee89aa0be1732c1622862600.css">*@
+
+<section>
+
+    <form class="row" action="/User/CheckOut" method="post">
+
+        <div class="col-lg-8 mb-4">
+
+            <div class="card wish-list pb-1">
+                <div class="card-body">
+
+                    <h5 class="mb-2">HÓA ĐƠN</h5>
+
+
+
+                    <!-- Address Chosing -->
+                    @*<div class="md-form md-outline mb-0 mb-lg-4">*@
+                        @*<div class="dropdown card-body">*@
+                            <input class="btn btn-light dropdown-toggle " value="Sổ địa chỉ..." type="button" id="inforCheckout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                            @*<input class="shipper" id="shippingComp" name="shipper" hidden />*@
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @foreach (var item in listAdress)
+                                {
+                                    <a class="dropdown-item btn btn-light" onclick="changeAddress('@item.Name','@item.Address1','@item.Phone')">@item.Address1</a>
+                                }
+                                <a class="dropdown-item btn btn-light" onclick="createAddress()" >Tạo địa chỉ mới</a>
+                            
+                            </div>
+                            <p class="text-right" id="estimateTime"></p>
+                        @*</div>    *@
+                    @*</div>*@
+
+                    <!--Name-->
+                    <div class="md-form md-outline mb-0 mb-lg-4 other-contact-info">
+                        <div class="md-form md-outline">
+                            <input type="text" id="name" disabled placeholder="Họ Tên"
+                                   class="form-control input-name" name="fullName">
+                        </div>
+                    </div>
+                    <!--Address-->
+                    <div class="md-form md-outline mb-0 mb-lg-4 other-contact-info">
+                        <div class="md-form md-outline">
+                            <input type="text" id="address" disabled placeholder="Số nhà, Đường, Phường/Xã, Quận/Huyện, Tỉnh/Thành Phố"
+                                   class="form-control input-address" name="address">
+
+                        </div>
+                    </div>
+                    <input name="id_address" class="id_address" hidden />
+
+                    <!-- Phone -->
+                    <div class="md-form md-outline mb-0 mb-lg-4 other-contact-info">
+                        <div class="md-form md-outline">
+                            <input type="number" disabled name="phone" id="phone" class="form-control input-phone" placeholder="Số điện thoại">
+                        </div>
+                    </div>
+                    <!-- Shipper -->
+                    @*<div class="d-flex flex-wrap card md-form md-outline mb-0 mb-lg-4">
+                            <div class="dropdown card-body">
+                                <input class="btn btn-light dropdown-toggle shipper" type="button" id="shipperDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                                <input class="shipper" id="shippingComp" name="shipper" hidden />
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item btn btn-light" onclick="changeShipper('shipper1')">Giao hàng nhanh - 40.000đ</a>
+                                    <a class="dropdown-item btn btn-light" onclick="changeShipper('shipper2')">Giao hàng tiết kiệm - 15.000đ</a>
+                                    <a class="dropdown-item btn btn-light" onclick="changeShipper('shipper3')">Viettel Post - 30.000đ</a>
+                                </div>
+                                <p class="text-right" id="estimateTime"></p>
+                            </div>
+                        </div>*@
+                    <!-- Notes -->
+                    <div class="md-form md-outline mb-0 mb-lg-4">
+                        <div class="md-form md-outline">
+                            <input id="input-note" type="text" maxlength="100" style="height:50px;" class="md-textarea form-control" name="message" placeholder="Lời nhắn tới người bán" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card -->
+
+        </div>
+
+
+    </form>
+    <!--Grid row-->
+
+</section>
+
+<script>
+
+
+    let changeShipper = (id) => {
+        let shipper = 'Giao hàng nhanh';
+        let shipFee = 40000;
+        if (id == 'shipper2') {
+            shipper = 'Giao hàng tiết kiệm';
+            shipFee = 15000;
+        }
+        if (id == 'shipper3') {
+            shipper = 'Viettel Post';
+            shipFee = 30000;
+        }
+        $('.shipper').text(shipper);
+        $('#shippingComp').val(shipper);
+        $('.shipper.btn').val(shipper);
+        $('.shipFee').text(shipFee.toLocaleString('it-IT', { style: 'currency', currency: 'VND' }))
+        $('#shipFee').val(shipFee)
+        changeEstimate(id);
+    }
+
+    let changeAddress = (name, address, phone) => {
+        document.getElementById("name").disabled = true;
+        document.getElementById("address").disabled = true;
+        document.getElementById("phone").disabled = true;
+        $('.input-name').val(name);
+        $('.input-address').val(address);
+        $('.input-phone').val(phone);
+        $('#inforCheckout').val(address);
+    }
+
+    let createAddress = () => {
+        $('.input-name').val('');
+        $('.input-address').val('');
+        $('.input-phone').val('');
+        document.getElementById("name").disabled = false;
+        document.getElementById("address").disabled = false;
+        document.getElementById("phone").disabled = false;
+        $('#inforCheckout').val("Tạo địa chỉ");
+    }
+</script>
+
+
+
+
