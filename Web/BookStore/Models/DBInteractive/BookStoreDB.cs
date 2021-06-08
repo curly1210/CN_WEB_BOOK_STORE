@@ -205,6 +205,48 @@ namespace BookStore.Models.DBInteractive
             return list;
         }
 
+        public List<CartItem> AddCart(List<CartItem> list, int id, int quantity, int checkBuyNow)
+        {
+            var book = StoreDB.Books.Find(id);
+            if (list != null)
+            {
+                if (list.Exists(x => x.book.ID == id))
+                {
+                    foreach (var item in list)
+                    {
+                        if (item.book.ID == id)
+                        {
+                            if (checkBuyNow == 0)
+                            {
+                                item.quantity += quantity;
+                            }
+                            else
+                            {
+                                item.quantity = 1;
+                            }
+                        }
+                    }
+                }
+                //Nếu item chưa có trong giỏ hàng
+                else
+                {
+                    var item = new Models.CartItem();
+                    item.book = book;
+                    item.quantity = quantity;
+                    list.Add(item);
+                }
+            }
+            else
+            {
+                var item = new CartItem();
+                item.book = book;
+                item.quantity = quantity;
+                list = new List<CartItem>();
+                list.Add(item);
+            }
+            return list;
+        }
+
 
     }
 }

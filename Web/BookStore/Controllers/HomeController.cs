@@ -51,7 +51,7 @@ namespace BookStore.Controllers
         {
             if (Session[Note.SESSION.UserInfor] != null)
                 return RedirectToAction("Index", "Home");
-
+            FormsAuthentication.SignOut();
             ViewBag.TotalCart = 0;
             ViewBag.ReturnUrl = returnUrl;
             return View();
@@ -68,7 +68,9 @@ namespace BookStore.Controllers
                     TempData[Note.TEMDATA.Message] = "Tài khoản của bạn bị khóa, vui lòng liên hệ để biết thêm chi tiết";
                     return RedirectToAction("Login", "Home", new { returnUrl });
                 }
+                FormsAuthentication.SetAuthCookie("" + user.ID, true);
                 Session[Note.SESSION.UserInfor] = user;
+
             }
             else
             {

@@ -19,96 +19,16 @@ namespace BookStore.Controllers
             return View();
         }
 
-        //public ActionResult AddToCart(int idBook, int quantity)
-        //{
-        //    if (Session[Note.SESSION.UserInfor] == null)
-        //        return RedirectToAction("Login", "Home");
-        //    var book = db.GetBook(idBook);
-        //    var cart = Session[Note.SESSION.Cart];
-        //    //Nếu đã có giỏ hàng
-        //    if (cart != null)
-        //    {
-        //        var list = (List<CartItem>)Session[Note.SESSION.Cart];
-        //        //Nếu item đã có trong giỏ hàng
-        //        if (list.Exists(x => x.book.ID == idBook))
-        //        {
-        //            foreach (var item in list)
-        //            {
-        //                if (item.book.ID == idBook)
-        //                {
-        //                    item.quantity += quantity;
-        //                }
-        //            }
-        //        }
-        //        //Nếu item chưa có trong giỏ hàng
-        //        else
-        //        {
-        //            var item = new Models.CartItem();
-        //            item.book = book;
-        //            item.quantity = quantity;
-        //            list.Add(item);
-        //        }
-        //        Session[Note.SESSION.Cart] = list;
-        //    }
-        //    //Nếu chưa có giỏ hàng
-        //    else
-        //    {
-        //        var item = new CartItem();
-        //        item.book = book;
-        //        item.quantity = quantity;
-        //        var list = new List<CartItem>();
-        //        list.Add(item);
-        //        Session[Note.SESSION.Cart] = list;
-        //    }
-        //    TempData[Note.TEMDATA.Message] = "Thêm vào giỏ hàng thành công";
-        //    return RedirectToAction("Detail", "Home", new { id = idBook });
-        //}
+
 
         [HttpPost]
         public JsonResult AddToCart(int id, int quantity)
         {
-            //if (Session[Note.SESSION.UserInfor] == null)
-            //    return RedirectToAction("Login", "Home");
-            var book = db.GetBook(id);
-            var cart = Session[Note.SESSION.Cart];
-            //Nếu đã có giỏ hàng
-            if (cart != null)
-            {
-                var list = (List<CartItem>)Session[Note.SESSION.Cart];
-                //Nếu item đã có trong giỏ hàng
-                if (list.Exists(x => x.book.ID == id))
-                {
-                    foreach (var item in list)
-                    {
-                        if (item.book.ID == id)
-                        {
-                            item.quantity += quantity;
-                        }
-                    }
-                }
-                //Nếu item chưa có trong giỏ hàng
-                else
-                {
-                    var item = new Models.CartItem();
-                    item.book = book;
-                    item.quantity = quantity;
-                    list.Add(item);
-                }
-                Session[Note.SESSION.Cart] = list;
-            }
-            //Nếu chưa có giỏ hàng
-            else
-            {
-                var item = new CartItem();
-                item.book = book;
-                item.quantity = quantity;
-                var list = new List<CartItem>();
-                list.Add(item);
-                Session[Note.SESSION.Cart] = list;
-            }
-            //TempData[Note.TEMDATA.Message] = "Thêm vào giỏ hàng thành công";
-            return Json(new { status = 1 });        
-            //return RedirectToAction("Detail", "Home", new { id = idBook });
+            var list = (List<CartItem>)Session[Note.SESSION.Cart];
+            int checkBuyNow = 0;
+            list = db.AddCart(list, id, quantity,checkBuyNow);
+            Session[Note.SESSION.Cart] = list;
+            return Json(new { status = 1 });
         }
 
         public ActionResult ListCart()
@@ -126,9 +46,9 @@ namespace BookStore.Controllers
             var list = (List<CartItem>)Session[Note.SESSION.Cart];
             foreach (var item in list)
             {
-                if(item.book.ID == id)
+                if (item.book.ID == id)
                 {
-                    item.quantity = quantity ;
+                    item.quantity = quantity;
                     break;
                 }
             }
@@ -139,9 +59,9 @@ namespace BookStore.Controllers
         public ActionResult DeleteCartItem(int id)
         {
             var list = (List<CartItem>)Session[Note.SESSION.Cart];
-            foreach(var item in list)
+            foreach (var item in list)
             {
-                if(item.book.ID == id)
+                if (item.book.ID == id)
                 {
                     list.Remove(item);
                     break;
@@ -151,11 +71,25 @@ namespace BookStore.Controllers
             return RedirectToAction("ListCart", "User");
         }
 
-        public ActionResult Payment()
+        public ActionResult Payment(int id = -1)
         {
             User user = (User)Session[Note.SESSION.UserInfor];
+            var list = (List<CartItem>)Session[Note.SESSION.Cart];
+            int checkBuyNow = 1;
+            if (id != -1)
+            {
+                list = db.AddCart(list, id, 1,checkBuyNow);
+                Session[Note.SESSION.Cart] = list;
+            }
+
             ViewBag.ListAdress = db.GetListAdressByIdUser(user.ID);
-            return View();
+            return View(list);
+        }
+
+        [HttpPost]
+        public ActionResult CheckOut(int idAddress, string fullName, string address, string phone, string shipper, string message, int shipFee, int totalPrice)
+        {
+            return RedirectToAction("Index", "Home");
         }
 
     }

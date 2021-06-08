@@ -139,6 +139,7 @@
     <Compile Include="Models\Entities\Address.cs" />
     <Compile Include="Models\Entities\Author.cs" />
     <Compile Include="Models\Entities\Book.cs" />
+    <Compile Include="Models\Entities\BookStore.cs" />
     <Compile Include="Models\Entities\BookStoreDBContext.cs" />
     <Compile Include="Models\Entities\Cart.cs" />
     <Compile Include="Models\Entities\Category.cs" />

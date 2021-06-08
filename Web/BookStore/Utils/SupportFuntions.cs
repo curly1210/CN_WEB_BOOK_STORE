@@ -73,5 +73,10 @@ namespace BookStore.Utils
 
             return hash;
         }
+
+        public static string formatMoney(object price, string prefix = " ₫")
+        {
+            return String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", price) + prefix;
+        }
     }
 }

@@ -1,12 +1,36 @@
 ﻿
+@model  List<BookStore.Models.CartItem>
+
 @{
     ViewBag.Title = "Payment";
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<BookStore.Models.Entities.Address> listAdress = ViewBag.ListAdress;
-
+    List<BookStore.Models.CartItem> carts = (List<BookStore.Models.CartItem>)Session[BookStore.Utils.Note.SESSION.Cart];
+    double tamTinh = 0;
 }
 
-@*<link type="text/css" rel="stylesheet" href="https://nhasachphuongnam.com/var/cache/misc/assets/design/themes/energot/css/standalone.763bdb83a7bba9d2daee89aa0be1732c1622862600.css">*@
+<style>
+
+    .my-custom-scrollbar {
+        position: relative;
+        min-height: 100px;
+        max-height: 200px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+</style>
+
+
+<header>
+    <style>
+        .dropdown-item:active {
+            border: 0px !important;
+        }
+    </style>    
+</header>
 
 <section>
 
@@ -22,58 +46,58 @@
 
 
                     <!-- Address Chosing -->
-                    @*<div class="md-form md-outline mb-0 mb-lg-4">*@
-                        @*<div class="dropdown card-body">*@
-                            <input class="btn btn-light dropdown-toggle " value="Sổ địa chỉ..." type="button" id="inforCheckout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                            @*<input class="shipper" id="shippingComp" name="shipper" hidden />*@
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                @foreach (var item in listAdress)
-                                {
-                                    <a class="dropdown-item btn btn-light" onclick="changeAddress('@item.Name','@item.Address1','@item.Phone')">@item.Address1</a>
-                                }
-                                <a class="dropdown-item btn btn-light" onclick="createAddress()" >Tạo địa chỉ mới</a>
-                            
-                            </div>
-                            <p class="text-right" id="estimateTime"></p>
-                        @*</div>    *@
-                    @*</div>*@
+
+                    <div>
+                        <input class="btn btn-light dropdown-toggle " value="Sổ địa chỉ..." type="button" id="inforCheckout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                        @*<input class="shipper" id="shippingComp" name="shipper" hidden />*@
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @foreach (var item in listAdress)
+                            {
+                                <a class="dropdown-item btn btn-light" style="display:block;text-align:inherit" onclick="changeAddress('@item.Name', '@item.Address1', '@item.Phone'); changeIdAddress('@item.ID')">@item.Address1</a>
+                            }
+                            <a class="dropdown-item btn btn-light" style="display:block;text-align:inherit" onclick="createAddress(); changeIdAddress('-1')">Tạo địa chỉ mới</a>
+
+                        </div>
+                        <p class="text-right" id="estimateTime"></p>
+                    </div>
+
 
                     <!--Name-->
                     <div class="md-form md-outline mb-0 mb-lg-4 other-contact-info">
                         <div class="md-form md-outline">
-                            <input type="text" id="name" disabled placeholder="Họ Tên"
+                            <input required oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Vui lòng điền đầy đủ thông tin')" type="text" id="name" placeholder="Họ Tên"
                                    class="form-control input-name" name="fullName">
                         </div>
                     </div>
                     <!--Address-->
                     <div class="md-form md-outline mb-0 mb-lg-4 other-contact-info">
                         <div class="md-form md-outline">
-                            <input type="text" id="address" disabled placeholder="Số nhà, Đường, Phường/Xã, Quận/Huyện, Tỉnh/Thành Phố"
+                            <input required oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Vui lòng điền đầy đủ thông tin')" type="text" id="address" placeholder="Số nhà, Đường, Phường/Xã, Quận/Huyện, Tỉnh/Thành Phố"
                                    class="form-control input-address" name="address">
 
                         </div>
                     </div>
-                    <input name="id_address" class="id_address" hidden />
+                    <input name="idAddress" value="-1" class="idAddress" hidden />
 
                     <!-- Phone -->
                     <div class="md-form md-outline mb-0 mb-lg-4 other-contact-info">
                         <div class="md-form md-outline">
-                            <input type="number" disabled name="phone" id="phone" class="form-control input-phone" placeholder="Số điện thoại">
+                            <input required oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Vui lòng điền đầy đủ thông tin')" type="number" name="phone" id="phone" class="form-control input-phone" placeholder="Số điện thoại">
                         </div>
                     </div>
                     <!-- Shipper -->
-                    @*<div class="d-flex flex-wrap card md-form md-outline mb-0 mb-lg-4">
-                            <div class="dropdown card-body">
-                                <input class="btn btn-light dropdown-toggle shipper" type="button" id="shipperDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                                <input class="shipper" id="shippingComp" name="shipper" hidden />
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item btn btn-light" onclick="changeShipper('shipper1')">Giao hàng nhanh - 40.000đ</a>
-                                    <a class="dropdown-item btn btn-light" onclick="changeShipper('shipper2')">Giao hàng tiết kiệm - 15.000đ</a>
-                                    <a class="dropdown-item btn btn-light" onclick="changeShipper('shipper3')">Viettel Post - 30.000đ</a>
-                                </div>
-                                <p class="text-right" id="estimateTime"></p>
-                            </div>
-                        </div>*@
+
+                    <div>
+                        <input class="btn btn-light dropdown-toggle shipper" type="button" id="shipperDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                        <input class="shipper" id="theShipper" name="shipper" hidden />
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item btn btn-light" style="display:block;text-align:inherit" onclick="changeShipper('shipper1')">Giao hàng nhanh - 40.000đ</a>
+                            <a class="dropdown-item btn btn-light" style="display:block;text-align:inherit" onclick="changeShipper('shipper2')">Giao hàng tiết kiệm - 15.000đ</a>
+                            <a class="dropdown-item btn btn-light" style="display:block;text-align:inherit" onclick="changeShipper('shipper3')">Viettel Post - 30.000đ</a>
+                        </div>
+                        <p class="text-right" id="estimateTime"></p>
+                    </div>
+
                     <!-- Notes -->
                     <div class="md-form md-outline mb-0 mb-lg-4">
                         <div class="md-form md-outline">
@@ -83,7 +107,73 @@
                 </div>
             </div>
             <!-- Card -->
+        </div>
 
+        <div class="col-lg-4">
+            <div class="sidebar__header">
+                <h4 class="sidebar__title">
+                    Đơn hàng (@carts.Count sản phẩm)
+                </h4>
+            </div>
+
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+                <table class="table table-bordered table-striped mb-0">
+
+                    <tbody>
+
+
+                        @foreach (var item in Model)
+                        {
+
+                            var thanhTien = Convert.ToDouble(item.book.Price * item.quantity);
+                            tamTinh += thanhTien;
+                            <tr>
+                                <td>
+                                    <div>
+                                        <img style="width:50px;height:50px" class="product-thumbnail__image" src="@item.book.Images.First().Url" />
+
+                                        <div style="display: inline-block; position: absolute; text-align: center; background-color: #03a9f4; color: white; width: 1.5em; height: 1.5em; line-height: 1.5em; border-radius: 50%; margin-left: -15px; ">@item.quantity</div>
+                                    </div>@item.book.Title
+                                </td>
+                                <td>@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)item.book.Price)₫</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+            <ul style="margin-top:5px" class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0">Tạm tính</h6>
+                    </div>
+                    <span class="text-success temp" style="font-size: 15px">@BookStore.Utils.SupportFuntions.formatMoney(tamTinh)</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0">Phí vận chuyển</h6>
+                    </div>
+                    <span id="spanShipFee" style="font-size: 15px" class="text-success shipFee"></span>
+                    <input id="shipFee" name="shipFee" hidden />
+                </li>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0">Tổng cộng</h6>
+                    </div>
+                    <span style="color:#ef3f3f;font-size:20px;font-weight:bold" class="total"></span>
+                    <input id="totalPrice" name="totalPrice" hidden />
+                </li>
+            </ul>
+            <div>
+                <a id="backCart" style="color:#ef3f3f" href="/User/ListCart" onmouseout="onMouseInColor()" onmousemove="onMouseOutColor()"> < Quay  về giỏ hàng </a>
+                <nav class="nav float-right">
+                    <button type="submit" style="background-color: #ef3f3f; border-radius: 5px " class="btn btn-checkout spinner">
+                        <b style="color:white">Đặt hàng</b>
+                    </button>
+                </nav>
+            </div>
         </div>
 
 
@@ -106,12 +196,15 @@
             shipper = 'Viettel Post';
             shipFee = 30000;
         }
-        $('.shipper').text(shipper);
-        $('#shippingComp').val(shipper);
+        let total = shipFee + @tamTinh;
+        $('.total').text(total.toLocaleString('it-IT') + " ₫");
+        $('#totalPrice').val(total);
+
         $('.shipper.btn').val(shipper);
-        $('.shipFee').text(shipFee.toLocaleString('it-IT', { style: 'currency', currency: 'VND' }))
-        $('#shipFee').val(shipFee)
-        changeEstimate(id);
+        $('#theShipper').val(shipper);
+        $('.shipFee').text(shipFee.toLocaleString('it-IT') + " ₫");
+        $('#shipFee').val(shipFee);
+        
     }
 
     let changeAddress = (name, address, phone) => {
@@ -131,8 +224,29 @@
         document.getElementById("name").disabled = false;
         document.getElementById("address").disabled = false;
         document.getElementById("phone").disabled = false;
+
+        //$('.input-address,.input-phone,.input-name').attr('required', 'required');
+        //$('.input-address,.input-phone,.input-name').attr('oninvalid', "this.setCustomValidity('Vui lòng nhập đủ thông tin!')");
+        //$('.input-address,.input-phone,.input-name').attr('oninput', "setCustomValidity('')");
+
         $('#inforCheckout').val("Tạo địa chỉ");
     }
+
+    let changeIdAddress = (id) => {
+        $('.idAddress').val(id);
+    }
+
+    const onMouseInColor = () => {
+        $('#backCart').css('color', '#ef3f3f');
+    }
+
+    const onMouseOutColor = () => {
+        $('#backCart').css('color', '#B32F2F');
+    }
+
+    changeShipper();
+    
+
 </script>
 
 

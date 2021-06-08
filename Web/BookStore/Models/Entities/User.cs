@@ -20,7 +20,7 @@ namespace BookStore.Models.Entities
 
         public int ID { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string Phone { get; set; }
 
         [StringLength(280)]
@@ -45,6 +45,9 @@ namespace BookStore.Models.Entities
 
         [StringLength(256)]
         public string google_id { get; set; }
+
+        [StringLength(512)]
+        public string token { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Address> Addresses { get; set; }

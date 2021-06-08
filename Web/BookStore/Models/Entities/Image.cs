@@ -16,6 +16,8 @@ namespace BookStore.Models.Entities
 
         public int? idBook { get; set; }
 
+        public int? order { get; set; }
+
         public virtual Book Book { get; set; }
     }
 }

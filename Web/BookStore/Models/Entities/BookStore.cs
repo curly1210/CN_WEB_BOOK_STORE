@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
 namespace BookStore.Models.Entities
 {
-    public partial class BookStoreDBContext : DbContext
+    public partial class BookStore : DbContext
     {
-        public BookStoreDBContext()
-            : base("name=BookStoreDBContext1")
+        public BookStore()
+            : base("name=BookStore1")
         {
         }
 
@@ -95,6 +95,10 @@ namespace BookStore.Models.Entities
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Order>()
+                .Property(e => e.ShipFee)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<Order>()
                 .HasMany(e => e.OrderDetails)
                 .WithRequired(e => e.Order)
                 .HasForeignKey(e => e.idOrder)
@@ -120,6 +124,10 @@ namespace BookStore.Models.Entities
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.token)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()

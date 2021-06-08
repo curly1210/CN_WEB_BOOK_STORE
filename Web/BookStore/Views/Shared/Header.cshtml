@@ -174,11 +174,13 @@
         let addToCart = (id) => {
             let quantity = $("#qty").val();
             //let span_text = document.getElementById("QuantityCart").innerText;
-                if (quantity != undefined) {
+            if (quantity != undefined) {
             } else {
                 quantity = 1;
             }
+
             changeCart(id, quantity);
+            //changeQuantityCart();
         }
 
         let changeCart = (id, quantity) => {
@@ -193,8 +195,14 @@
         }
 
         let buyNow = (ID) => {
-            window.location.href = `/User/Payment`;
+            window.location.href = `/User/Payment?id=${ID}`;
         }
+
+        //let changeQuantityCart = () => {
+        //    let before = parseInt(document.getElementById("QuantityCart").textContent);
+        //    let after = before + 1;
+        //    //$('#QuantityCart').text(after);
+        //}
     </script>
 }
 

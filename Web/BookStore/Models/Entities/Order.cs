@@ -37,6 +37,8 @@ namespace BookStore.Models.Entities
         [StringLength(100)]
         public string Notes { get; set; }
 
+        public decimal? ShipFee { get; set; }
+
         public virtual User User { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
