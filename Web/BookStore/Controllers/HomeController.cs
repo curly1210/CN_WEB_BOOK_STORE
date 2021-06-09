@@ -15,6 +15,11 @@ namespace BookStore.Controllers
         BookStoreDB db = new BookStoreDB();
         public ActionResult Index()
         {
+            if (Session[Note.SESSION.CheckOutSuccess] != null)
+            {
+                TempData[Note.TEMDATA.Message] = "Đặt hàng thành công";
+                Session[Note.SESSION.CheckOutSuccess] = null;
+            }
             return View(db.GetHomePage());
         }
 

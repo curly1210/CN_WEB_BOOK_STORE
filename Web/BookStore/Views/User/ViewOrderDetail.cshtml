@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ViewOrderDetail";
+    Layout = "~/Views/User/_LayOut_User.cshtml";
+}
+
+<div style="font-size: 19px; line-height: 21px; font-weight: 350; margin: 15px 0px 15px; ">
+    <span>Chi tiết đơn hàng #@ViewBag.IdOrder - </span>
+    @if (ViewBag.Order.OrderStatus == 0)
+    {
+        <span style="font-weight:600">Đang giao hàng</span>
+    }
+    else
+    {
+        <span style="font-weight: 600">Giao hàng thành công</span>
+    }
+</div>
+

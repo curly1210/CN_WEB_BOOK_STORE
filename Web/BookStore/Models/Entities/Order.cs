@@ -20,7 +20,7 @@ namespace BookStore.Models.Entities
         public int? idUser { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? CreateDate { get; set; }
+        public DateTime CreateDate { get; set; }
 
         public decimal? TotalPrice { get; set; }
 

@@ -198,6 +198,9 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\User\ListCart.cshtml" />
     <Content Include="Views\User\Payment.cshtml" />
+    <Content Include="Views\User\_LayOut_User.cshtml" />
+    <Content Include="Views\User\ManagementOders.cshtml" />
+    <Content Include="Views\User\ViewOrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

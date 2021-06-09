@@ -247,6 +247,60 @@ namespace BookStore.Models.DBInteractive
             return list;
         }
 
+        public void CheckOut(List<CartItem> listCart, int idUser, int idAddress, string fullName, string address, string phone, string shipper, string message, int shipFee, int totalPrice)
+        {
+            Order order = new Order();
+            order.idUser = idUser;
+            order.CreateDate = DateTime.Now;
+            if (idAddress != -1)
+            {
+                string HadName = StoreDB.Addresses.Where(x => x.ID == idAddress).First().Name;
+                order.ClientName = HadName;
+                order.IDAddress = idAddress;
+            }
+            else
+            {
+                Address newAddress = new Address();
+                newAddress.Name = fullName;
+                newAddress.Phone = phone;
+                newAddress.Address1 = address;
+                newAddress.idUser = idUser;
+                StoreDB.Addresses.Add(newAddress);
+                StoreDB.SaveChanges();
+                order.IDAddress = newAddress.ID;
+                order.ClientName = fullName;
+            }
+            order.TotalPrice = totalPrice;
+            order.OrderStatus = 0;
+            order.Shipper = shipper;
+            order.Notes = message;
+            order.ShipFee = shipFee;
+            StoreDB.Orders.Add(order);
+            StoreDB.SaveChanges();
+            
 
+            int idOrder = StoreDB.Orders.OrderByDescending(x => x.ID).First().ID;
+            foreach(var item in listCart)
+            {
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.idOrder = idOrder;
+                orderDetail.idBook = item.book.ID;
+                orderDetail.Quantity = item.quantity;
+                StoreDB.OrderDetails.Add(orderDetail);
+            }
+            StoreDB.SaveChanges();
+        }
+
+        public List<Order> GetListOderByIdUser(int idUser)
+        {
+            var listOrder = StoreDB.Orders.Where(x => x.idUser == idUser).OrderByDescending(x =>x.ID).ToList();
+            return listOrder;
+        }
+
+        public Order GetOrderByIdOrder(int idOrder)
+        {
+            var order = StoreDB.Orders.Where(x => x.ID == idOrder).First();
+            return order;
+        }
     }
 }

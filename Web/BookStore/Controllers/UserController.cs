@@ -26,13 +26,16 @@ namespace BookStore.Controllers
         {
             var list = (List<CartItem>)Session[Note.SESSION.Cart];
             int checkBuyNow = 0;
-            list = db.AddCart(list, id, quantity,checkBuyNow);
+            list = db.AddCart(list, id, quantity, checkBuyNow);
             Session[Note.SESSION.Cart] = list;
             return Json(new { status = 1 });
         }
 
         public ActionResult ListCart()
         {
+            if (Session[Note.SESSION.UserInfor] == null)
+                return RedirectToAction("Index", "Home");
+
             var cart = Session[Note.SESSION.Cart];
             var list = new List<Models.CartItem>();
             if (cart != null)
@@ -58,6 +61,9 @@ namespace BookStore.Controllers
 
         public ActionResult DeleteCartItem(int id)
         {
+            if (Session[Note.SESSION.UserInfor] == null)
+                return RedirectToAction("Index", "Home");
+
             var list = (List<CartItem>)Session[Note.SESSION.Cart];
             foreach (var item in list)
             {
@@ -73,12 +79,15 @@ namespace BookStore.Controllers
 
         public ActionResult Payment(int id = -1)
         {
+            if (Session[Note.SESSION.UserInfor] == null)
+                return RedirectToAction("Index", "Home");
+
             User user = (User)Session[Note.SESSION.UserInfor];
             var list = (List<CartItem>)Session[Note.SESSION.Cart];
             int checkBuyNow = 1;
             if (id != -1)
             {
-                list = db.AddCart(list, id, 1,checkBuyNow);
+                list = db.AddCart(list, id, 1, checkBuyNow);
                 Session[Note.SESSION.Cart] = list;
             }
 
@@ -89,7 +98,28 @@ namespace BookStore.Controllers
         [HttpPost]
         public ActionResult CheckOut(int idAddress, string fullName, string address, string phone, string shipper, string message, int shipFee, int totalPrice)
         {
+            User user = (User)Session[Note.SESSION.UserInfor];
+            List<CartItem> listCart = (List<CartItem>)Session[Note.SESSION.Cart];
+            db.CheckOut(listCart, user.ID, idAddress, fullName, address, phone, shipper, message, shipFee, totalPrice);
+            Session[Note.SESSION.Cart] = null;
+            Session[Note.SESSION.CheckOutSuccess] = 1;
             return RedirectToAction("Index", "Home");
+        }
+        public ActionResult ManagementOders()
+        {
+            if (Session[Note.SESSION.UserInfor] == null)
+                return RedirectToAction("Index", "Home");
+
+            User user = (User)Session[Note.SESSION.UserInfor];
+            var listOrder = db.GetListOderByIdUser(user.ID);
+            return View(listOrder);
+        }
+
+        public ActionResult ViewOrderDetail(int idOrder)
+        {
+            ViewBag.IdOrder = idOrder;
+            ViewBag.Order = db.GetOrderByIdOrder(idOrder);
+            return View();
         }
 
     }

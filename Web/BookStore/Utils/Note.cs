@@ -17,6 +17,7 @@ namespace BookStore.Utils
         {
             public static string UserInfor = "UserInfor";
             public static string Cart = "Cart";
+            public static string CheckOutSuccess = "CheckOutSuccess";
         }
 
         public static int id_Admin = 4;

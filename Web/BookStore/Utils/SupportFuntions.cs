@@ -78,5 +78,11 @@ namespace BookStore.Utils
         {
             return String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", price) + prefix;
         }
+
+        public static string formatDateTime(DateTime dateTime)
+        {
+            string toString = dateTime.ToString("dd/MM/yyyy");
+            return toString;
+        }
     }
 }

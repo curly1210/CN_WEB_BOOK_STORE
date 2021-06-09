@@ -83,7 +83,7 @@
                 }
                 else if (userInfo != null && !userInfo.ID.Equals(BookStore.Utils.Note.id_Admin))
                 {
-                    <a rel="nofollow">Xin chào @userInfo.Fullname</a>
+                    <a rel="nofollow" href="/User/ManagementOders">Xin chào @userInfo.Fullname</a>
                     <a rel="nofollow" href="/Home/Logout" title="Đăng xuất">Đăng xuất</a>
                 }
 
@@ -197,6 +197,7 @@
         let buyNow = (ID) => {
             window.location.href = `/User/Payment?id=${ID}`;
         }
+
 
         //let changeQuantityCart = () => {
         //    let before = parseInt(document.getElementById("QuantityCart").textContent);
