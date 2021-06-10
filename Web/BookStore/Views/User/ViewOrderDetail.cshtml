@@ -1,11 +1,14 @@
-﻿
+﻿@model List<BookStore.Models.Entities.OrderDetail>
+
 @{
     ViewBag.Title = "ViewOrderDetail";
     Layout = "~/Views/User/_LayOut_User.cshtml";
+
 }
 
+
 <div style="font-size: 19px; line-height: 21px; font-weight: 350; margin: 15px 0px 15px; ">
-    <span>Chi tiết đơn hàng #@ViewBag.IdOrder - </span>
+    <span>Chi tiết đơn hàng #@ViewBag.Order.ID - </span>
     @if (ViewBag.Order.OrderStatus == 0)
     {
         <span style="font-weight:600">Đang giao hàng</span>
@@ -16,3 +19,103 @@
     }
 </div>
 
+<div>
+    <nav style="margin-bottom: 10px; font-family: Roboto, Helvetica, Arial, sans-serif;" class="nav float-right">Ngày đặt hàng: @BookStore.Utils.SupportFuntions.formatDateTime(ViewBag.Order.CreateDate)</nav>
+</div>
+
+<div class="row" style="margin-top: 50px; font-family: Roboto, Helvetica, Arial, sans-serif;">
+    <div style="line-height: 1.5; box-sizing: border-box; font-size: 13px; margin: 0px 0px 15px; color: rgb(36, 36, 36);" class="col-lg-4">
+        ĐỊA CHỈ NGƯỜI NHẬN
+        <div style="  font-size: 13px; line-height: 1.5; color: rgba(0, 0, 0, 0.65);   background-color: rgb(255, 255, 255); padding: 10px; border-radius: 4px; ">
+            <p style=" color: rgb(36, 36, 36); font-weight: 900; ">
+                @ViewBag.AddressOrder.Name
+            </p>
+            <p style="margin-top:-15px">
+                Địa chỉ: @ViewBag.AddressOrder.Address1
+            </p>
+            <p style="margin-top:-15px">
+                Số điện thoại: @ViewBag.AddressOrder.Phone
+            </p>
+        </div>
+    </div>
+    <div style=" line-height: 1.5; box-sizing: border-box; font-size: 13px;  color: rgb(36, 36, 36);" class="col-lg-4">
+        HÌNH THỨC GIAO HÀNG
+        <div style="  font-size: 13px; line-height: 1.5; color: rgba(0, 0, 0, 0.65);   background-color: rgb(255, 255, 255); padding: 10px; border-radius: 4px; ">
+            <p style="color: rgb(36, 36, 36);font-weight:900;margin-top:-2px;text-transform:uppercase">
+                @ViewBag.Order.Shipper
+            </p>
+            <p style="margin-top:-15px">
+                Phí vận chuyển: @BookStore.Utils.SupportFuntions.formatMoney(ViewBag.Order.ShipFee)
+            </p>
+        </div>
+    </div>
+    <div style=" text-size-adjust: 100%;  line-height: 1.5; box-sizing: border-box; font-size: 13px; text-transform: uppercase; margin: 0px 0px 15px; color: rgb(36, 36, 36);" class="col-lg-4">
+        HÌNH THỨC THANH TOÁN
+        <p style="color: rgb(36, 36, 36); font-weight: 900; margin-top: 6px; ">
+            THANH TOÁN KHI NHẬN HÀNG
+        </p>
+    </div>
+</div>
+
+<div>
+    <table style="background-color:white">
+        <thead>
+            <tr>
+                <th style="font-weight:normal">Sản phẩm</th>
+                <th style="font-weight: normal">Giá</th>
+                <th style="font-weight: normal">Số lượng</th>
+                <th style="font-weight: normal">Giảm giá</th>
+                <th style="font-weight: normal">Tạm tính</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div>
+                            <a href="/Home/Detail?id=@item.Book.ID" style="color:#03a9f4">
+                                <img style="width:60px;height:60px" src="@item.Book.Images.First().Url" alt="@item.Book.Title" />
+                                @item.Book.Title
+                            </a>
+                        </div>
+                    </td>
+                    <td>@BookStore.Utils.SupportFuntions.formatMoney(item.Book.Price * Convert.ToDecimal(10) / Convert.ToDecimal(9))</td>
+                    <td>@item.Quantity</td>
+                    <td>@BookStore.Utils.SupportFuntions.formatMoney(item.Book.Price * Convert.ToDecimal(10) / Convert.ToDecimal(9) - item.Book.Price)</td>
+                    <td>@BookStore.Utils.SupportFuntions.formatMoney(item.Book.Price * Convert.ToDecimal(item.Quantity))</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<table style="width:100%">
+
+    <tr>
+        <td style="border-color: white"></td>
+        <td style="border-color: white"></td>
+        <td style="text-align: right; width: 600px; border-color: white; padding: 0px 0px 0px 0px; color: rgb(120, 120, 120); ">Tạm tính:</td>
+        <td style="text-align: right; border-color: white; padding: 0px 0px 0px 0px">@BookStore.Utils.SupportFuntions.formatMoney( (ViewBag.Order.TotalPrice - Convert.ToDecimal(ViewBag.Order.ShipFee)) * Convert.ToDecimal(10) / Convert.ToDecimal(9) )</td>
+    </tr>
+    <tr>
+        <td style="border-color: white"></td>
+        <td style="border-color: white"></td>
+        <td style="text-align: right; border-color: white; padding: 0px 0px 0px 0px; color: rgb(120, 120, 120); ">Giảm giá:</td>
+        <td style="text-align: right; border-color: white;padding:0px">-@BookStore.Utils.SupportFuntions.formatMoney((ViewBag.Order.TotalPrice - Convert.ToDecimal(ViewBag.Order.ShipFee)) * Convert.ToDecimal(10) / Convert.ToDecimal(9) - (ViewBag.Order.TotalPrice - Convert.ToDecimal(ViewBag.Order.ShipFee))) </td>
+    </tr>
+    <tr>
+        <td style="border-color: white"></td>
+        <td style="border-color: white"></td>
+        <td style="text-align: right; border-color: white; padding: 0px 0px 0px 0px; color: rgb(120, 120, 120); ">Phí vận chuyển:</td>
+        <td style="text-align: right; border-color: white; padding: 0px 0px 0px 0px">@BookStore.Utils.SupportFuntions.formatMoney(ViewBag.Order.ShipFee)</td>
+    </tr>
+    <tr>
+        <td style="border-color: white"></td>
+        <td style="border-color: white"></td>
+        <td style="text-align: right; border-color: white; padding: 0px 0px 0px 0px; color: rgb(120, 120, 120); ">Tổng cộng:</td>
+        <td style="text-align: right; border-color: white; padding: 0px 0px 0px 0px; color: rgb(255, 59, 39);font-size:20px ">@BookStore.Utils.SupportFuntions.formatMoney(ViewBag.Order.TotalPrice)</td>
+    </tr>
+
+</table>

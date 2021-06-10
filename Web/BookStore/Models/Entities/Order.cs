@@ -32,7 +32,7 @@ namespace BookStore.Models.Entities
         [StringLength(50)]
         public string Shipper { get; set; }
 
-        public int? IDAddress { get; set; }
+        public int IDAddress { get; set; }
 
         [StringLength(100)]
         public string Notes { get; set; }

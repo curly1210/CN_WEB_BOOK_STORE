@@ -83,13 +83,13 @@
                             <span class="old-price" ">
                                 Giá thị trường:
                                 <del class="price product-price-old">
-                                    @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price * 1.1)đ
+                                    @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price * 10 / 9)đ
                                 </del>
 
                             </span> <!-- Giás gốc -->
                             <span class="save-price">
                                 Tiết kiệm:
-                                <span class="price product-price-save"> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price * 1.1 - (double)Model.Price)đ</span>
+                                <span class="price product-price-save"> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)Model.Price * 10 / 9 - (double)Model.Price)đ</span>
                             </span> <!-- Tiết kiệm -->
 
                         </div>
@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="form-product">
-                        <form enctype="multipart/form-data" id="" action="/" method="get" class="clearfix form-inline has-validation-callback">
+                        <form  enctype="multipart/form-data" id="" action="/" method="get"  class="clearfix form-inline has-validation-callback AddToCart">
                             <input name="idBook" hidden value="@Model.ID" />
                             <div class="clearfix form-group ">
                                 <div class="qty-ant clearfix custom-btn-number">
@@ -203,6 +203,6 @@
 </div>
 
 <script>
-    $('form').submit(false);
+    $('.AddToCart').submit(false);
 </script>
 

@@ -117,9 +117,15 @@ namespace BookStore.Controllers
 
         public ActionResult ViewOrderDetail(int idOrder)
         {
-            ViewBag.IdOrder = idOrder;
-            ViewBag.Order = db.GetOrderByIdOrder(idOrder);
-            return View();
+            if (Session[Note.SESSION.UserInfor] == null)
+                return RedirectToAction("Index", "Home");
+
+            User user = (User)Session[Note.SESSION.UserInfor];
+            Order order = db.GetOrderByIdOrder(idOrder);
+            ViewBag.Order = order;
+            ViewBag.AddressOrder = db.GetAddressOrderByIdUser(user.ID, order.IDAddress);
+            var listOrderDetail = db.GetListOrderDetailByIdOrder(idOrder);
+            return View(listOrderDetail);
         }
 
     }

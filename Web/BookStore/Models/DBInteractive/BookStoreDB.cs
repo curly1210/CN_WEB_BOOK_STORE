@@ -277,10 +277,10 @@ namespace BookStore.Models.DBInteractive
             order.ShipFee = shipFee;
             StoreDB.Orders.Add(order);
             StoreDB.SaveChanges();
-            
+
 
             int idOrder = StoreDB.Orders.OrderByDescending(x => x.ID).First().ID;
-            foreach(var item in listCart)
+            foreach (var item in listCart)
             {
                 OrderDetail orderDetail = new OrderDetail();
                 orderDetail.idOrder = idOrder;
@@ -293,7 +293,7 @@ namespace BookStore.Models.DBInteractive
 
         public List<Order> GetListOderByIdUser(int idUser)
         {
-            var listOrder = StoreDB.Orders.Where(x => x.idUser == idUser).OrderByDescending(x =>x.ID).ToList();
+            var listOrder = StoreDB.Orders.Where(x => x.idUser == idUser).OrderByDescending(x => x.ID).ToList();
             return listOrder;
         }
 
@@ -301,6 +301,16 @@ namespace BookStore.Models.DBInteractive
         {
             var order = StoreDB.Orders.Where(x => x.ID == idOrder).First();
             return order;
+        }
+
+        public List<OrderDetail> GetListOrderDetailByIdOrder(int idOrder)
+        {
+            return StoreDB.OrderDetails.Where(x => x.idOrder == idOrder).ToList();
+        }
+
+        public Address GetAddressOrderByIdUser(int idUser, int idAddress)
+        {
+            return  StoreDB.Addresses.Where(x => x.idUser == idUser).Where(x =>x.ID ==  idAddress).First();
         }
     }
 }
