@@ -79,7 +79,7 @@
                 @if (userInfo == null)
                 {
                     <a rel="nofollow" onclick="goToLoginPage()" title="Đăng nhập">Đăng nhập</a>
-                    <a rel="nofollow" href="/" title="Đăng ký">Đăng ký</a>
+                    <a rel="nofollow" onclick="goToSignUp()" title="Đăng ký">Đăng ký</a>
                 }
                 else if (userInfo != null && !userInfo.ID.Equals(BookStore.Utils.Note.id_Admin))
                 {
@@ -146,6 +146,10 @@
 <script>
     const goToLoginPage = () => {
         window.location.href = `/Home/Login?returnUrl=${window.location.href}`
+    }
+
+    const goToSignUp = () => {
+        window.location.href = `/Home/SignUp?returnUrl=${window.location.href}`
     }
 
 </script>

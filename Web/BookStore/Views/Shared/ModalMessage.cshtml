@@ -10,7 +10,7 @@
             <div class="modal-body" id="message">
                 @TempData[BookStore.Utils.Note.TEMDATA.Message]
             </div>
-            @if (TempData[BookStore.Utils.Note.TEMDATA.RequireLogin] != null)
+            @if (TempData[BookStore.Utils.Note.TEMDATA.RequireLogin] != null && TempData["SignUp"] ==null)
             {
                 <div class="modal-footer">
                     <button onclick="goToLoginPage()" type="button" style="color: white; background-color: #03a9f4" class="btn">Đăng nhập</button>

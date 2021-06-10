@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container margin-bottom-20 margin-top-30">
+    <div class="row justify-content-md-center">
+        <div class="col-md-7">
+            <div class="page-login account-box-shadow">
+                <div >
+                    <div class="text-center margin-bottom-30">
+                        <h1 class="title-head" style=" font-size: 26px; line-height: 28px; margin: 0; font-weight: 500; text-transform: uppercase;">Đăng kí tài khoản</h1>
+                    </div>
+
+                    <form accept-charset="utf-8" action="/Home/SignUp" id="customer_login" method="post" class="has-validation-callback">
+                        <input name="returnUrl" hidden value="@ViewBag.ReturnUrl" />
+
+                        <div class="form-signup">
+
+                        </div>
+                        <div class="form-signup clearfix">
+                            <fieldset class="form-group margin-bottom-10">
+                                <label style=" font-weight: 500; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; align-items: center;">SỐ ĐIỆN THOẠI<span class="required">*</span></label>
+                                <input autocomplete="off" placeholder="Nhập số điện thoại" type="number" class="form-control form-control-lg" value="@ViewBag.Phone" name="phone" required>
+                            </fieldset>
+                            <fieldset class="form-group margin-bottom-0">
+                                <label style=" font-weight: 500; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; align-items: center;">MẬT KHẨU<span class="required">*</span></label>
+                                <input autocomplete="off" placeholder="Nhập mật khẩu" type="password" class="form-control form-control-lg" value="" name="password" required>
+                            </fieldset>
+                            <fieldset class="form-group margin-bottom-0">   
+                                <label style=" font-weight: 500; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; align-items: center;">XÁC NHẬN MẬT KHẨU<span class="required">*</span></label>
+                                <input autocomplete="off" placeholder="Nhập lại mật khẩu" type="password" class="form-control form-control-lg" value="" name="confirmPassword" required>
+                            </fieldset>
+                            <fieldset class="form-group margin-bottom-0">
+                                <label style=" font-weight: 500; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; align-items: center;">HỌ VÀ TÊN<span class="required">*</span></label>
+                                <input autocomplete="off" placeholder="Nhập họ và tên" type="text" class="form-control form-control-lg" value="@ViewBag.FullName" name="fullName" required>
+                            </fieldset>
+                            <fieldset class="form-group margin-bottom-0">
+                                <label style=" font-weight: 500; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; align-items: center;">EMAIL<span class="required"></span></label>
+                                <input autocomplete="off" placeholder="Nhập Email" type="text" class="form-control form-control-lg" value="@ViewBag.Email" name="email">
+                            </fieldset>
+                            <fieldset class="form-group margin-bottom-0">
+                                <label style=" font-weight: 500; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; align-items: center;">giới tính<span class="required"></span></label>
+                                <select name="gender" class="form-control" value="@ViewBag.Gender">
+                                    <option value="Khác">Khác</option>
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                </select>
+                            </fieldset>
+                            <fieldset class="form-group margin-bottom-0">
+                                <label style=" font-weight: 500; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; align-items: center;">Ngày sinh<span class="required"></span></label>
+                                <input autocomplete="off" placeholder="Nhập ngày sinh" type="date" class="form-control form-control-lg" value="@ViewBag.Birthday" name="birthday">
+                            </fieldset>
+
+                            <div class="pull-xs-left text-center" style="margin-top: 15px;">
+                                <button class="btn btn-style btn-blues " style=" min-width: 290px; padding-top: 0; padding-bottom: 0; height: 50px; font-weight: 500; letter-spacing: 1.2px; font-size: 13px; width: 100%;" type="submit" >Đăng kí</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    @*<div class="text-login text-center" style="margin-top:10px">
+                        <p style=" margin-bottom: 0; font-size: 12px; text-transform: uppercase; font-weight: 500; letter-spacing: 1.2px;">
+                            Bạn chưa có tài khoản. Đăng ký <a href="/account/register" title="Đăng ký" style="color:#03a9f4">tại đây.</a>
+                        </p>
+                    </div>*@
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

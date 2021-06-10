@@ -51,9 +51,11 @@
     </div>
     <div style=" text-size-adjust: 100%;  line-height: 1.5; box-sizing: border-box; font-size: 13px; text-transform: uppercase; margin: 0px 0px 15px; color: rgb(36, 36, 36);" class="col-lg-4">
         HÌNH THỨC THANH TOÁN
-        <p style="color: rgb(36, 36, 36); font-weight: 900; margin-top: 6px; ">
-            THANH TOÁN KHI NHẬN HÀNG
-        </p>
+        <div style="  font-size: 13px; line-height: 1.5; color: rgba(0, 0, 0, 0.65);   background-color: rgb(255, 255, 255); padding: 10px; border-radius: 4px; ">
+            <p style="color: rgb(36, 36, 36); font-weight: 900; margin-top: -2px; ">
+                THANH TOÁN KHI NHẬN HÀNG
+            </p>
+        </div>
     </div>
 </div>
 
@@ -97,7 +99,7 @@
         <td style="border-color: white"></td>
         <td style="border-color: white"></td>
         <td style="text-align: right; width: 600px; border-color: white; padding: 0px 0px 0px 0px; color: rgb(120, 120, 120); ">Tạm tính:</td>
-        <td style="text-align: right; border-color: white; padding: 0px 0px 0px 0px">@BookStore.Utils.SupportFuntions.formatMoney( (ViewBag.Order.TotalPrice - Convert.ToDecimal(ViewBag.Order.ShipFee)) * Convert.ToDecimal(10) / Convert.ToDecimal(9) )</td>
+        <td style="text-align: right; border-color: white; padding: 0px 0px 0px 0px">@BookStore.Utils.SupportFuntions.formatMoney((ViewBag.Order.TotalPrice - Convert.ToDecimal(ViewBag.Order.ShipFee)) * Convert.ToDecimal(10) / Convert.ToDecimal(9))</td>
     </tr>
     <tr>
         <td style="border-color: white"></td>

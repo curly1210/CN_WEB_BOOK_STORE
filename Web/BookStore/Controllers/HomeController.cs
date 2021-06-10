@@ -57,7 +57,7 @@ namespace BookStore.Controllers
             if (Session[Note.SESSION.UserInfor] != null)
                 return RedirectToAction("Index", "Home");
             FormsAuthentication.SignOut();
-            ViewBag.TotalCart = 0;
+            //ViewBag.TotalCart = 0;
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -97,6 +97,48 @@ namespace BookStore.Controllers
             Session[Note.SESSION.Cart] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult SignUp(string returnUrl, string phone="", string fullName="", string email="", string gender="", string birthday="")
+        {
+            ViewBag.Phone = phone;
+            ViewBag.FullName = fullName;
+            ViewBag.Email = email;
+            ViewBag.Gender = gender;
+            ViewBag.Birthday = birthday;
+            if (Session[Note.SESSION.UserInfor] != null)
+                return RedirectToAction("Index", "Home");
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SignUp(string phone, string password, string confirmPassword, string fullName, string email, string gender, string birthday, string returnUrl)
+        {
+            
+            if (!password.Equals(confirmPassword))
+            {
+                TempData[Note.TEMDATA.Message] = "Xác nhận mật khẩu không đúng";
+                TempData["SignUp"] = true;
+                return RedirectToAction("SignUp", "Home", new { returnUrl,phone,fullName,email,gender,birthday});
+            }
+
+            User user = db.SignUp(phone, password, fullName, email, gender, birthday);
+            if (user != null)
+            {
+                Session[Note.SESSION.UserInfor] = user;
+            }
+            else
+            {
+                TempData[Note.TEMDATA.Message] = "Số điện thoại đã đăng kí";
+                TempData["SignUp"] = true;
+                return RedirectToAction("SignUp", "Home", new { returnUrl });
+            }
+
+            if (returnUrl.Equals(""))
+                return RedirectToAction("Index", "Home");
+
+            return Redirect(returnUrl);
         }
     }
 }

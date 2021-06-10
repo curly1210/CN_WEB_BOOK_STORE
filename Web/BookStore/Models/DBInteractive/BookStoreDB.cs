@@ -310,7 +310,26 @@ namespace BookStore.Models.DBInteractive
 
         public Address GetAddressOrderByIdUser(int idUser, int idAddress)
         {
-            return  StoreDB.Addresses.Where(x => x.idUser == idUser).Where(x =>x.ID ==  idAddress).First();
+            return StoreDB.Addresses.Where(x => x.idUser == idUser).Where(x => x.ID == idAddress).First();
+        }
+
+        public User SignUp(string phone, string password, string fullName, string email = "", string gender = "", string birthday = "")
+        {
+            if (StoreDB.Users.Where(x => x.Phone == phone).Count() > 0)
+                return null;
+            User user = new User();
+            user.Phone = phone;
+            user.Password = SupportFuntions.sha256(password);
+            user.Fullname = fullName;
+            user.Email = email;
+            user.Gender = gender;
+            if (birthday.Length == 0)
+                user.Birthday = DateTime.Now.ToShortDateString();
+            else
+                user.Birthday = birthday;
+            StoreDB.Users.Add(user);
+            StoreDB.SaveChanges();
+            return user;
         }
     }
 }

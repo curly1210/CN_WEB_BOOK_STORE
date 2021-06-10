@@ -6,7 +6,6 @@
 }
 <link href="~/Content/Style_Navbar_Category.css" rel="stylesheet" />
 
-@ViewBag.CheckOutSuccess
 
 <style>
     h3 ::after {
@@ -128,7 +127,7 @@
                                                     <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)item.Price)đ</span>
 
                                                     <span class="product-price-old">
-                                                        <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)item.Price * 10/9)đ</span>
+                                                        <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)item.Price * 10 / 9)đ</span>
                                                     </span>
 
                                                 </span>

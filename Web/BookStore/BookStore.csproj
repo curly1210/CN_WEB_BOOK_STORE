@@ -201,6 +201,7 @@
     <Content Include="Views\User\_LayOut_User.cshtml" />
     <Content Include="Views\User\ManagementOders.cshtml" />
     <Content Include="Views\User\ViewOrderDetail.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
