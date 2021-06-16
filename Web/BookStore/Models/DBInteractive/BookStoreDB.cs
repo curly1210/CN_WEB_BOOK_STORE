@@ -331,5 +331,23 @@ namespace BookStore.Models.DBInteractive
             StoreDB.SaveChanges();
             return user;
         }
+
+        public User UpdateInfoUser(string phone, string fullName, string birthday, string email, string gender )
+        {
+            User user = StoreDB.Users.Where(x => x.Phone == phone).First();
+            if (user == null)
+                return null;
+            user.Fullname = fullName;
+            user.Email = email;
+            user.Gender = gender;
+            if (birthday.Length == 0)
+                user.Birthday = DateTime.Now.ToShortDateString();
+            else
+                user.Birthday = birthday;
+            
+            StoreDB.SaveChanges();
+            return user;
+
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿    @model IEnumerable<BookStore.Models.Entities.Book>
+﻿@model IEnumerable<BookStore.Models.Entities.Book>
 
 
 @{
@@ -20,7 +20,7 @@
                 <img class="d-block w-100" src="https://nhasachphuongnam.com/images/promo/193/Bé_nghỉ_hè_sớm_890x396__4_.jpg" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://nhasachphuongnam.com/images/promo/192/Tháng-Năm,-chăm-chỉ-săn-sách_890x396.jpg" alt="Third slide">
+                <img class="d-block w-100" src="https://nhasachphuongnam.com/images/promo/202/Banner_tang_tui_890x396px-01__5_.jpg" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -48,35 +48,35 @@
                 <div class="headings d-lg-block d-none gradien-color" style=" background-image: linear-gradient(to right,#03a9f4,#3f51b5);"><img src="//bizweb.dktcdn.net/100/386/441/themes/764408/assets/fliter_logo.svg?1621496047879" alt="Lọc sản phẩm"> Lọc sản phẩm <svg class="d-sm-block d-lg-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490.656 490.656" style="enable-background:new 0 0 490.656 490.656;" xml:space="preserve" width="25px" height="25px"><path d="M487.536,120.445c-4.16-4.16-10.923-4.16-15.083,0L245.339,347.581L18.203,120.467c-4.16-4.16-10.923-4.16-15.083,0    c-4.16,4.16-4.16,10.923,0,15.083l234.667,234.667c2.091,2.069,4.821,3.115,7.552,3.115s5.461-1.045,7.531-3.136l234.667-234.667    C491.696,131.368,491.696,124.605,487.536,120.445z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#141414"></path></svg></div>
                 <div class="aside-hidden-mobile">
                     <div class="filter-container">
-                        <div class="filter-containers d-none">
-                            <div class="filter-container__selected-filter" style="display: none;">
-                                <div class="filter-container__selected-filter-list clearfix">
-                                    <ul>
-                                    </ul>
-                                    <a href="javascript:void(0)" onclick="clearAllFiltered()" class="filter-container__clear-all" title="Bỏ hết">Bỏ hết</a>
+                        @*<div class="filter-containers d-none">
+                                <div class="filter-container__selected-filter" style="display: none;">
+                                    <div class="filter-container__selected-filter-list clearfix">
+                                        <ul>
+                                        </ul>
+                                        <a href="javascript:void(0)" onclick="clearAllFiltered()" class="filter-container__clear-all" title="Bỏ hết">Bỏ hết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="clearfix"></div>
+                            <div class="clearfix"></div>*@
 
                         <a class="btn btn-primary" style="background-color:#03a9f4" href="/Home/List" role="button">Bỏ bộ lọc</a>
 
                         <aside class="aside-item filter-type">
                             <div class="aside-title">Thể loại</div>
                             <div class="aside-content filter-group">
-                                <div class="field-search input-group">
-                                    <input type="text" placeholder="Tìm Loại" class="form-control filter-type-list">
-                                    <button class="btn btn-default">
-                                        <svg viewBox="0 0 451 451" style="width:20px;">
-                                            <g fill="#000">
-                                                <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
-                                                 s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
-                                                 C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
-                                                 s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
-                                            </g>
-                                        </svg>
-                                    </button>
-                                </div>
+                                @*<div class="field-search input-group">
+                                        <input type="text" placeholder="Tìm Loại" class="form-control filter-type-list">
+                                        <button class="btn btn-default">
+                                            <svg viewBox="0 0 451 451" style="width:20px;">
+                                                <g fill="#000">
+                                                    <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
+                                                     s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
+                                                     C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
+                                                     s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>*@
                                 <ul class="filter-type">
 
                                     @foreach (var cate in ViewBag.ListCate)
@@ -107,7 +107,7 @@
 
                             <div class="aside-title">Giá sản phẩm</div>
                             <div class="aside-content filter-group">
-                               
+
                                 <ul class="filter-type">
 
                                     @foreach (var cost in ViewBag.ListCost)
@@ -138,19 +138,19 @@
 
                             <div class="aside-title" style="">Hình thức</div>
                             <div class="aside-content filter-group">
-                                <div class="field-search input-group">
-                                    <input type="text" placeholder="Tìm Hình Thức" class="form-control filter-type-list">
-                                    <button class="btn btn-default">
-                                        <svg viewBox="0 0 451 451" style="width:20px;">
-                                            <g fill="#000">
-                                                <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
-                                                 s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
-                                                 C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
-                                                 s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
-                                            </g>
-                                        </svg>
-                                    </button>
-                                </div>
+                                @*<div class="field-search input-group">
+                                        <input type="text" placeholder="Tìm Hình Thức" class="form-control filter-type-list">
+                                        <button class="btn btn-default">
+                                            <svg viewBox="0 0 451 451" style="width:20px;">
+                                                <g fill="#000">
+                                                    <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
+                                                     s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
+                                                     C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
+                                                     s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>*@
                                 <ul class="filter-type">
 
                                     @foreach (var type in ViewBag.ListType)
@@ -181,19 +181,19 @@
 
                             <div class="aside-title">Ngôn ngữ</div>
                             <div class="aside-content filter-group">
-                                <div class="field-search input-group">
-                                    <input type="text" placeholder="Tìm Ngôn Ngữ" class="form-control filter-type-list">
-                                    <button class="btn btn-default">
-                                        <svg viewBox="0 0 451 451" style="width:20px;">
-                                            <g fill="#000">
-                                                <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
-                                                 s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
-                                                 C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
-                                                 s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
-                                            </g>
-                                        </svg>
-                                    </button>
-                                </div>
+                                @*<div class="field-search input-group">
+                                        <input type="text" placeholder="Tìm Ngôn Ngữ" class="form-control filter-type-list">
+                                        <button class="btn btn-default">
+                                            <svg viewBox="0 0 451 451" style="width:20px;">
+                                                <g fill="#000">
+                                                    <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
+                                                     s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
+                                                     C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
+                                                     s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>*@
                                 <ul class="filter-type">
 
                                     @foreach (var language in ViewBag.ListLanguage)
@@ -239,107 +239,116 @@
                     </div>
                 </div>
             </div>
-            <div class="category-products products category-products-grids clearfix tu-sa-ch">
-                <section class="products-view products-view-grid row">
 
-                    @foreach (var book in Model)
-                    {
-                        <div class="col-6 col-sm-4 col-lg-3">
+            @if (Model.Count() != 0)
+            {
+                <div class="category-products products category-products-grids clearfix tu-sa-ch">
+                    <section class="products-view products-view-grid row">
 
-                            <div class="evo-product-block-item">
-                                <figure class="product-image">
-                                    <div class="product-image--holder">
-                                        <a href="/Home/Detail?id=@book.ID" title="@book.Title" class="image-resize">
-                                            <img class="lazy loaded" src="@book.Images.First().Url" data-src="@book.Images.First().Url" alt="@book.Title" data-was-processed="true">
-                                        </a>
-                                    </div>
-                                    <div class="airi-product-action">
-                                        <form action="/" method="post" enctype="multipart/form-data" class="hidden-md variants form-nut-grid form-ajaxtocart has-validation-callback" data-id="product-actions-21386342">
+                        @foreach (var book in Model)
+                        {
+                            <div class="col-6 col-sm-4 col-lg-3">
 
-
-                                            <input type="hidden" name="variantId" value="44490923">
-                                            <button type="button" title="Mua ngay" class="action" onclick="buyNow(@book.ID)"><svg enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m504.399 185.065c-6.761-8.482-16.904-13.348-27.83-13.348h-98.604l-53.469-122.433c-3.315-7.591-12.157-11.06-19.749-7.743-7.592 3.315-11.059 12.158-7.743 19.75l48.225 110.427h-178.458l48.225-110.427c3.315-7.592-.151-16.434-7.743-19.75-7.591-3.317-16.434.15-19.749 7.743l-53.469 122.434h-98.604c-10.926 0-21.069 4.865-27.83 13.348-6.637 8.328-9.086 19.034-6.719 29.376l52.657 230c3.677 16.06 17.884 27.276 34.549 27.276h335.824c16.665 0 30.872-11.216 34.549-27.276l52.657-230.001c2.367-10.342-.082-21.048-6.719-29.376zm-80.487 256.652h-335.824c-2.547 0-4.778-1.67-5.305-3.972l-52.657-229.998c-.413-1.805.28-3.163.936-3.984.608-.764 1.985-2.045 4.369-2.045h85.503l-3.929 8.997c-3.315 7.592.151 16.434 7.743 19.75 1.954.854 3.99 1.258 5.995 1.258 5.782 0 11.292-3.363 13.754-9l9.173-21.003h204.662l9.173 21.003c2.462 5.638 7.972 9 13.754 9 2.004 0 4.041-.404 5.995-1.258 7.592-3.315 11.059-12.158 7.743-19.75l-3.929-8.997h85.503c2.384 0 3.761 1.281 4.369 2.045.655.822 1.349 2.18.936 3.983l-52.657 230c-.528 2.301-2.76 3.971-5.307 3.971z"></path><path d="m166 266.717c-8.284 0-15 6.716-15 15v110c0 8.284 6.716 15 15 15s15-6.716 15-15v-110c0-8.284-6.715-15-15-15z"></path><path d="m256 266.717c-8.284 0-15 6.716-15 15v110c0 8.284 6.716 15 15 15s15-6.716 15-15v-110c0-8.284-6.716-15-15-15z"></path><path d="m346 266.717c-8.284 0-15 6.716-15 15v110c0 8.284 6.716 15 15 15s15-6.716 15-15v-110c-.001-8.284-6.716-15-15-15z"></path></svg></button>
-                                            <button type="button" title="Thêm vào giỏ" class="action add_to_cart" onclick="addToCart(@book.ID)" ><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve"><path d="M214.685,402.828c-24.829,0-45.029,20.2-45.029,45.029c0,24.829,20.2,45.029,45.029,45.029s45.029-20.2,45.029-45.029C259.713,423.028,239.513,402.828,214.685,402.828z M214.685,467.742c-10.966,0-19.887-8.922-19.887-19.887c0-10.966,8.922-19.887,19.887-19.887s19.887,8.922,19.887,19.887C234.572,458.822,225.65,467.742,214.685,467.742z"></path><path d="M372.63,402.828c-24.829,0-45.029,20.2-45.029,45.029c0,24.829,20.2,45.029,45.029,45.029s45.029-20.2,45.029-45.029C417.658,423.028,397.458,402.828,372.63,402.828z M372.63,467.742c-10.966,0-19.887-8.922-19.887-19.887c0-10.966,8.922-19.887,19.887-19.887c10.966,0,19.887,8.922,19.887,19.887C392.517,458.822,383.595,467.742,372.63,467.742z"></path><path d="M383.716,165.755H203.567c-6.943,0-12.571,5.628-12.571,12.571c0,6.943,5.629,12.571,12.571,12.571h180.149c6.943,0,12.571-5.628,12.571-12.571C396.287,171.382,390.659,165.755,383.716,165.755z"></path><path d="M373.911,231.035H213.373c-6.943,0-12.571,5.628-12.571,12.571s5.628,12.571,12.571,12.571h160.537c6.943,0,12.571-5.628,12.571-12.571C386.481,236.664,380.853,231.035,373.911,231.035z"></path><path d="M506.341,109.744c-4.794-5.884-11.898-9.258-19.489-9.258H95.278L87.37,62.097c-1.651-8.008-7.113-14.732-14.614-17.989l-55.177-23.95c-6.37-2.767-13.773,0.156-16.536,6.524c-2.766,6.37,0.157,13.774,6.524,16.537L62.745,67.17l60.826,295.261c2.396,11.628,12.752,20.068,24.625,20.068h301.166c6.943,0,12.571-5.628,12.571-12.571c0-6.943-5.628-12.571-12.571-12.571H148.197l-7.399-35.916H451.69c11.872,0,22.229-8.44,24.624-20.068l35.163-170.675C513.008,123.266,511.136,115.627,506.341,109.744z M451.69,296.301H135.619l-35.161-170.674l386.393,0.001L451.69,296.301z"></path></svg></button>
+                                <div class="evo-product-block-item">
+                                    <figure class="product-image">
+                                        <div class="product-image--holder">
+                                            <a href="/Home/Detail?id=@book.ID" title="@book.Title" class="image-resize">
+                                                <img class="lazy loaded" src="@book.Images.First().Url" data-src="@book.Images.First().Url" alt="@book.Title" data-was-processed="true">
+                                            </a>
+                                        </div>
+                                        <div class="airi-product-action">
+                                            <form action="/" method="post" enctype="multipart/form-data" class="hidden-md variants form-nut-grid form-ajaxtocart has-validation-callback" data-id="product-actions-21386342">
 
 
-                                        </form>
-                                    </div>
-
-                                    <span class="product-badge sale">- 10% </span>
-
-                                </figure>
-                                <div class="product-info text-center">
-                                    <h3 class="product-title">
-                                        <a href="/Home/Detail?id=@book.ID" title="@book.Title">@book.Title</a>
-                                    </h3>
-                                    <span class="product-price-wrapper">
+                                                <input type="hidden" name="variantId" value="44490923">
+                                                <button type="button" title="Mua ngay" class="action" onclick="buyNow(@book.ID)"><svg enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m504.399 185.065c-6.761-8.482-16.904-13.348-27.83-13.348h-98.604l-53.469-122.433c-3.315-7.591-12.157-11.06-19.749-7.743-7.592 3.315-11.059 12.158-7.743 19.75l48.225 110.427h-178.458l48.225-110.427c3.315-7.592-.151-16.434-7.743-19.75-7.591-3.317-16.434.15-19.749 7.743l-53.469 122.434h-98.604c-10.926 0-21.069 4.865-27.83 13.348-6.637 8.328-9.086 19.034-6.719 29.376l52.657 230c3.677 16.06 17.884 27.276 34.549 27.276h335.824c16.665 0 30.872-11.216 34.549-27.276l52.657-230.001c2.367-10.342-.082-21.048-6.719-29.376zm-80.487 256.652h-335.824c-2.547 0-4.778-1.67-5.305-3.972l-52.657-229.998c-.413-1.805.28-3.163.936-3.984.608-.764 1.985-2.045 4.369-2.045h85.503l-3.929 8.997c-3.315 7.592.151 16.434 7.743 19.75 1.954.854 3.99 1.258 5.995 1.258 5.782 0 11.292-3.363 13.754-9l9.173-21.003h204.662l9.173 21.003c2.462 5.638 7.972 9 13.754 9 2.004 0 4.041-.404 5.995-1.258 7.592-3.315 11.059-12.158 7.743-19.75l-3.929-8.997h85.503c2.384 0 3.761 1.281 4.369 2.045.655.822 1.349 2.18.936 3.983l-52.657 230c-.528 2.301-2.76 3.971-5.307 3.971z"></path><path d="m166 266.717c-8.284 0-15 6.716-15 15v110c0 8.284 6.716 15 15 15s15-6.716 15-15v-110c0-8.284-6.715-15-15-15z"></path><path d="m256 266.717c-8.284 0-15 6.716-15 15v110c0 8.284 6.716 15 15 15s15-6.716 15-15v-110c0-8.284-6.716-15-15-15z"></path><path d="m346 266.717c-8.284 0-15 6.716-15 15v110c0 8.284 6.716 15 15 15s15-6.716 15-15v-110c-.001-8.284-6.716-15-15-15z"></path></svg></button>
+                                                <button type="button" title="Thêm vào giỏ" class="action add_to_cart" onclick="addToCart(@book.ID)"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve"><path d="M214.685,402.828c-24.829,0-45.029,20.2-45.029,45.029c0,24.829,20.2,45.029,45.029,45.029s45.029-20.2,45.029-45.029C259.713,423.028,239.513,402.828,214.685,402.828z M214.685,467.742c-10.966,0-19.887-8.922-19.887-19.887c0-10.966,8.922-19.887,19.887-19.887s19.887,8.922,19.887,19.887C234.572,458.822,225.65,467.742,214.685,467.742z"></path><path d="M372.63,402.828c-24.829,0-45.029,20.2-45.029,45.029c0,24.829,20.2,45.029,45.029,45.029s45.029-20.2,45.029-45.029C417.658,423.028,397.458,402.828,372.63,402.828z M372.63,467.742c-10.966,0-19.887-8.922-19.887-19.887c0-10.966,8.922-19.887,19.887-19.887c10.966,0,19.887,8.922,19.887,19.887C392.517,458.822,383.595,467.742,372.63,467.742z"></path><path d="M383.716,165.755H203.567c-6.943,0-12.571,5.628-12.571,12.571c0,6.943,5.629,12.571,12.571,12.571h180.149c6.943,0,12.571-5.628,12.571-12.571C396.287,171.382,390.659,165.755,383.716,165.755z"></path><path d="M373.911,231.035H213.373c-6.943,0-12.571,5.628-12.571,12.571s5.628,12.571,12.571,12.571h160.537c6.943,0,12.571-5.628,12.571-12.571C386.481,236.664,380.853,231.035,373.911,231.035z"></path><path d="M506.341,109.744c-4.794-5.884-11.898-9.258-19.489-9.258H95.278L87.37,62.097c-1.651-8.008-7.113-14.732-14.614-17.989l-55.177-23.95c-6.37-2.767-13.773,0.156-16.536,6.524c-2.766,6.37,0.157,13.774,6.524,16.537L62.745,67.17l60.826,295.261c2.396,11.628,12.752,20.068,24.625,20.068h301.166c6.943,0,12.571-5.628,12.571-12.571c0-6.943-5.628-12.571-12.571-12.571H148.197l-7.399-35.916H451.69c11.872,0,22.229-8.44,24.624-20.068l35.163-170.675C513.008,123.266,511.136,115.627,506.341,109.744z M451.69,296.301H135.619l-35.161-170.674l386.393,0.001L451.69,296.301z"></path></svg></button>
 
 
-                                        <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)book.Price)đ</span>
+                                            </form>
+                                        </div>
 
-                                        <span class="product-price-old">
-                                            <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)book.Price * 10/9)đ</span>
+                                        <span class="product-badge sale">- 10% </span>
+
+                                    </figure>
+                                    <div class="product-info text-center">
+                                        <h3 class="product-title">
+                                            <a href="/Home/Detail?id=@book.ID" title="@book.Title">@book.Title</a>
+                                        </h3>
+                                        <span class="product-price-wrapper">
+
+
+                                            <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)book.Price)đ</span>
+
+                                            <span class="product-price-old">
+                                                <span class="money">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", (double)book.Price * 10 / 9)đ</span>
+                                            </span>
+
+
+
                                         </span>
-
-
-
-                                    </span>
+                                    </div>
                                 </div>
                             </div>
+                        }
+
+
+                    </section>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-12 margin-top-20 fix-pag">
+                            <nav class="text-center">
+                                <ul class="pagination clearfix">
+
+                                    @if (ViewBag.PresentPage > 1)
+                                    {
+                                        <li class="page-item "><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage - 1)&cate=@ViewBag.Cate&type=@ViewBag.Type&language=@ViewBag.Language&publisher=@ViewBag" title="«">«</a></li>
+                                    }
+
+                                    @if (ViewBag.PresentPage > 4 && ViewBag.MaxPage > 5)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=1&cate=@ViewBag.Cate" title="1">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="javascript:;" title="...">...</a></li>
+                                    }
+
+                                    @foreach (int i in ViewBag.ListPage)
+                                    {
+                                        if (i == ViewBag.PresentPage)
+                                        {
+                                            <li class="active page-item disabled"><a class="page-link" href="" title="@i">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@i&cate=@ViewBag.Cate" title="@i">@i</a></li>
+                                        }
+
+                                    }
+
+                                    @if (@ViewBag.PresentPage <= (@ViewBag.MaxPage - 3) && ViewBag.MaxPage > 5)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="" title="...">...</a></li>
+                                        <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@ViewBag.MaxPage&cate=@ViewBag.Cate" title="@ViewBag.MaxPage">@ViewBag.MaxPage</a></li>
+                                    }
+
+                                    @if (ViewBag.PresentPage < ViewBag.MaxPage)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage + 1)&cate=@ViewBag.Cate" title="»">»</a></li>
+                                    }
+
+                                </ul>
+                            </nav>
                         </div>
-                    }
-
-
-                </section>
-
-                <div class="row">
-                    <div class="col-lg-12 col-sm-12 col-12 margin-top-20 fix-pag">
-                        <nav class="text-center">
-                            <ul class="pagination clearfix">
-
-                                @if (ViewBag.PresentPage > 1)
-                                {
-                                    <li class="page-item "><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage-1)&cate=@ViewBag.Cate&type=@ViewBag.Type&language=@ViewBag.Language&publisher=@ViewBag" title="«">«</a></li>
-                                }
-
-                                @if (ViewBag.PresentPage > 4 && ViewBag.MaxPage > 5)
-                                {
-                                    <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=1&cate=@ViewBag.Cate" title="1">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:;" title="...">...</a></li>
-                                }
-
-                                @foreach (int i in ViewBag.ListPage)
-                                {
-                                    if (i == ViewBag.PresentPage)
-                                    {
-                                        <li class="active page-item disabled"><a class="page-link" href="" title="@i">@i</a></li>
-                                    }
-                                    else
-                                    {
-                                        <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@i&cate=@ViewBag.Cate" title="@i">@i</a></li>
-                                    }
-
-                                }
-
-                                @if (@ViewBag.PresentPage <= (@ViewBag.MaxPage - 3) && ViewBag.MaxPage > 5)
-                                {
-                                    <li class="page-item"><a class="page-link" href="" title="...">...</a></li>
-                                    <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@ViewBag.MaxPage&cate=@ViewBag.Cate" title="@ViewBag.MaxPage">@ViewBag.MaxPage</a></li>
-                                }
-
-                                @if (ViewBag.PresentPage < ViewBag.MaxPage)
-                                {
-                                    <li class="page-item"><a class="page-link" href="/Home/List?text=@ViewBag.TextSearch&page=@(ViewBag.PresentPage+1)&cate=@ViewBag.Cate" title="»">»</a></li>
-                                }
-
-                            </ul>
-                        </nav>
                     </div>
+
+
+
                 </div>
+            }
+            else
+            {
 
-
-
-            </div>
+                <div style="margin-top: 10px; background-color: rgb(255, 255, 251); border: 1px solid #03a9f4; color: #03a9f4; padding: 16px 24px; display: flex; ">Rất tiếc, không tìm thấy sản phẩm phù hợp với lựa chọn của bạn</div>
+            }
         </section>
     </div>
 </div>

@@ -128,5 +128,26 @@ namespace BookStore.Controllers
             return View(listOrderDetail);
         }
 
+        public ActionResult EditUser()
+        {
+            if(Session["UpdataInfo"] != null)
+            {
+                TempData[Note.TEMDATA.Message] = "Cập nhật thành công";
+                Session["UpdataInfo"] = null;
+            }
+            User user = (User)Session[Note.SESSION.UserInfor];
+
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult EditUser(string fullName, string birthday, string email, string gender)
+        {
+            User user = (User)Session[Note.SESSION.UserInfor];
+            Session[Note.SESSION.UserInfor] = db.UpdateInfoUser(user.Phone, fullName, birthday, email, gender);
+            Session["UpdataInfo"] = true;
+            return RedirectToAction("EditUser", "User");
+
+        }
     }
 }
